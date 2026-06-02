@@ -9,19 +9,27 @@ const stats = [
 
 export default function Stats() {
   return (
-    <section style={{ background: "#f7f4ec" }} className="pad-sm">
+    <section style={{ background: "#2c5440", color: "#f7f4ec" }} className="pad-sm">
       <div className="wrap">
-        <div className="stats-row" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "24px", textAlign: "center" }}>
-          {stats.map((s) => (
+        <div
+          className="stats-row"
+          style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "24px", textAlign: "center" }}
+        >
+          {stats.map((s, i) => (
             <Reveal key={s.label}>
-              <div style={{ lineHeight: 1, fontFamily: "var(--font-display)", fontSize: "clamp(40px, 5vw, 60px)", color: "#c9a24b", fontWeight: 600 }}>
-                {s.num}
-              </div>
-              <div style={{ marginTop: "12px", fontSize: "14px", color: "#1f3d2b", fontWeight: 600, letterSpacing: "0.02em" }}>
-                {s.label}
-              </div>
-              <div style={{ fontSize: "12.5px", color: "rgba(28,27,23,0.55)", marginTop: "4px" }}>
-                {s.sub}
+              {i > 0 && (
+                <div style={{ position: "absolute", left: 0, top: "50%", transform: "translateY(-50%)", width: "1px", height: "60px", background: "rgba(247,244,236,0.15)" }} />
+              )}
+              <div style={{ position: "relative" }}>
+                <div style={{ fontFamily: "var(--font-display)", fontSize: "clamp(44px, 5vw, 64px)", color: "#c9a24b", fontWeight: 600, lineHeight: 1 }}>
+                  {s.num}
+                </div>
+                <div style={{ marginTop: "12px", fontSize: "14px", color: "#f7f4ec", fontWeight: 600, letterSpacing: "0.04em" }}>
+                  {s.label}
+                </div>
+                <div style={{ fontSize: "12.5px", color: "rgba(247,244,236,0.55)", marginTop: "5px" }}>
+                  {s.sub}
+                </div>
               </div>
             </Reveal>
           ))}

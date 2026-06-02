@@ -9,7 +9,6 @@ import Featured from "@/components/sections/Featured";
 import Story from "@/components/sections/Story";
 import Reviews from "@/components/sections/Reviews";
 import QuoteForm from "@/components/sections/QuoteForm";
-import ServiceArea from "@/components/sections/ServiceArea";
 
 export default function Home() {
   return (
@@ -25,7 +24,6 @@ export default function Home() {
       <Story />
       <Reviews />
       <QuoteForm />
-      <ServiceArea />
     </main>
   );
 }
