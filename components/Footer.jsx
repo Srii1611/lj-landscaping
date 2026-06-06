@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const seoLocations = [
   "Framingham Landscaping",
   "Natick Lawn Care",
@@ -59,8 +61,8 @@ export default function Footer() {
               Explore
             </h5>
             <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "9px", fontSize: "14.5px", opacity: 0.85 }}>
-              {[["#work", "Our Work"], ["#featured", "Featured Projects"], ["#story", "Our Story"], ["#reviews", "Reviews"], ["#quote", "Get a Quote"]].map(([href, label]) => (
-                <li key={href}><a href={href}>{label}</a></li>
+              {[["/our-work", "Our Work"], ["/about", "Our Story"], ["/reviews", "Reviews"], ["/contact", "Contact"]].map(([href, label]) => (
+                <li key={href}><Link href={href}>{label}</Link></li>
               ))}
             </ul>
           </div>
@@ -73,9 +75,9 @@ export default function Footer() {
             <p style={{ fontSize: "14.5px", opacity: 0.85, marginBottom: "9px" }}>Phone: (placeholder)</p>
             <p style={{ fontSize: "14.5px", opacity: 0.85, marginBottom: "9px" }}>Email: (placeholder)</p>
             <p style={{ fontSize: "14.5px", opacity: 0.85, marginBottom: "9px" }}>Framingham, MA &middot; Metro West</p>
-            <a href="#quote" style={{ display: "inline-block", marginTop: "10px", color: "#c9a24b", fontWeight: 600, fontSize: "14px" }}>
+            <Link href="/contact" style={{ display: "inline-block", marginTop: "10px", color: "#c9a24b", fontWeight: 600, fontSize: "14px" }}>
               Request a free estimate &rarr;
-            </a>
+            </Link>
           </div>
         </div>
 

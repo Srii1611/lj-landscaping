@@ -1,5 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
+import Link from "next/link";
+// TODO: Replace text wordmark with <Image> once Luis provides logo file in /public/
+// import Image from "next/image";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -25,7 +28,7 @@ export default function Nav() {
           </div>
           <div className="right">
             <a href="tel:0000000000">&#128222; (placeholder) phone</a>
-            <a href="#quote">Free estimate</a>
+            <Link href="/contact">Free estimate</Link>
           </div>
         </div>
       </div>
@@ -44,21 +47,21 @@ export default function Nav() {
       >
         <div className="wrap" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", height: "76px" }}>
           {/* Brand */}
-          <a href="#" style={{ display: "flex", flexDirection: "column", lineHeight: 0.92, textDecoration: "none", color: "inherit" }}>
+          <Link href="/" style={{ display: "flex", flexDirection: "column", lineHeight: 0.92, textDecoration: "none", color: "inherit" }}>
             <span style={{ fontFamily: "var(--font-display)", fontSize: "26px", fontWeight: 700, letterSpacing: "-0.01em" }}>L&amp;J</span>
             <span style={{ fontSize: "10px", letterSpacing: "0.34em", textTransform: "uppercase", opacity: 0.8, marginTop: "3px" }}>Landscaping</span>
-          </a>
+          </Link>
 
           {/* Desktop links */}
           <div className="nav-desktop-links" style={{ display: "flex", gap: "30px", fontWeight: 500, fontSize: "15px", alignItems: "center" }}>
-            <a href="#services" className="nav-link">Services</a>
-            <a href="#work" className="nav-link">Our Work</a>
-            <a href="#story" className="nav-link">Our Story</a>
-            <a href="#area" className="nav-link">Service Area</a>
-            <a href="#reviews" className="nav-link">Reviews</a>
+            <Link href="/services" className="nav-link">Services</Link>
+            <Link href="/our-work" className="nav-link">Our Work</Link>
+            <Link href="/about" className="nav-link">Our Story</Link>
+            <Link href="/service-area" className="nav-link">Service Area</Link>
+            <Link href="/reviews" className="nav-link">Reviews</Link>
           </div>
 
-          <a href="#quote" className="btn">Request a Quote</a>
+          <Link href="/contact" className="btn">Request a Quote</Link>
 
           {/* Hamburger */}
           <button
@@ -89,24 +92,24 @@ export default function Nav() {
             }}
           >
             {[
-              ["#services", "Services"],
-              ["#work", "Our Work"],
-              ["#story", "Our Story"],
-              ["#area", "Service Area"],
-              ["#reviews", "Reviews"],
+              ["/services", "Services"],
+              ["/our-work", "Our Work"],
+              ["/about", "Our Story"],
+              ["/service-area", "Service Area"],
+              ["/reviews", "Reviews"],
             ].map(([href, label]) => (
-              <a
+              <Link
                 key={href}
                 href={href}
                 onClick={closeMobile}
                 style={{ padding: "6px 0", borderBottom: "1px solid rgba(247,244,236,0.12)" }}
               >
                 {label}
-              </a>
+              </Link>
             ))}
-            <a href="#quote" className="btn" onClick={closeMobile} style={{ marginTop: "8px", justifyContent: "center" }}>
+            <Link href="/contact" className="btn" onClick={closeMobile} style={{ marginTop: "8px", justifyContent: "center" }}>
               Request a Quote
-            </a>
+            </Link>
           </div>
         )}
       </nav>
