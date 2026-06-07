@@ -62,14 +62,12 @@ export default function Nav() {
 
           {/* RIGHT: social icons */}
           <div className="hidden md:flex items-center gap-4 ml-auto">
-            {/* TODO: add Luis's Facebook URL */}
             <a href="#" target="_blank" rel="noopener noreferrer"
                className="text-cream/60 hover:text-gold transition">
               <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
               </svg>
             </a>
-            {/* TODO: add Luis's Instagram URL */}
             <a href="#" target="_blank" rel="noopener noreferrer"
                className="text-cream/60 hover:text-gold transition">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
@@ -88,10 +86,10 @@ export default function Nav() {
 
         {/* DESKTOP */}
         <div className="hidden md:block">
-          <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-center relative">
+          <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between relative">
 
             {/* LEFT links */}
-            <div className="flex items-center gap-8 flex-1 justify-end pr-24">
+            <div className="flex items-center gap-8 flex-1 justify-end pr-28">
               <Link href="/" className={navLinkClass}>Home</Link>
               <Link href="/about" className={navLinkClass}>About</Link>
 
@@ -107,7 +105,7 @@ export default function Nav() {
                   </svg>
                 </button>
                 {servicesOpen && (
-                  <div className="absolute top-full left-0 mt-2 bg-white rounded-xl shadow-lg border border-stone min-w-[210px] z-50">
+                  <div className="absolute top-full left-0 mt-6 bg-white rounded-xl shadow-lg border border-stone min-w-[210px] z-50">
                     {serviceItems.map(([label, href]) => (
                       <Link key={href} href={href} onClick={() => setServicesOpen(false)}
                         className="block px-5 py-3 text-sm font-body text-ink hover:bg-stone transition border-b border-stone/50 last:border-0">
@@ -124,18 +122,18 @@ export default function Nav() {
               </div>
             </div>
 
-            {/* CENTER logo — hangs below nav row */}
-            <div className="absolute left-1/2 -translate-x-1/2 bottom-0 z-20">
-              <Link href="/">
-                <div className="bg-cream border border-stone/30 border-t-0 rounded-b-2xl px-4 pb-2 shadow-md">
-                  <Image src="/logo.png" width={80} height={80}
-                         alt="L&J Landscaping" className="object-contain"/>
-                </div>
-              </Link>
+            {/* CENTER logo — Dropdown Cutout Effect */}
+            <div className="absolute left-1/2 -translate-x-1/2 top-0 z-20 pointer-events-none">
+              <div className="bg-cream border border-stone/30 border-t-0 rounded-b-[2.5rem] px-6 pt-2 pb-6 shadow-md pointer-events-auto">
+                <Link href="/">
+                  <Image src="/logo.png" width={100} height={100}
+                         alt="L&J Landscaping" className="object-contain hover:scale-105 transition-transform duration-300"/>
+                </Link>
+              </div>
             </div>
 
-            {/* RIGHT links */}
-            <div className="flex items-center gap-8 flex-1 justify-start pl-24">
+            {/* RIGHT links & CTA */}
+            <div className="flex items-center gap-8 flex-1 justify-start pl-28">
               <Link href="/our-work" className={navLinkClass}>Portfolio</Link>
 
               {/* Contact dropdown */}
@@ -150,18 +148,23 @@ export default function Nav() {
                   </svg>
                 </button>
                 {contactOpen && (
-                  <div className="absolute top-full right-0 mt-2 bg-white rounded-xl shadow-lg border border-stone min-w-[180px] z-50">
+                  <div className="absolute top-full right-0 mt-6 bg-white rounded-xl shadow-lg border border-stone min-w-[180px] z-50">
                     <Link href="/service-area" onClick={() => setContactOpen(false)}
                       className="block px-5 py-3 text-sm font-body text-ink hover:bg-stone transition border-b border-stone/50">
                       Service Area
                     </Link>
                     <Link href="/quote" onClick={() => setContactOpen(false)}
                       className="block px-5 py-3 text-sm font-body text-forest font-semibold hover:bg-stone transition">
-                      Request a Quote
+                      Contact Us
                     </Link>
                   </div>
                 )}
               </div>
+
+              {/* Standalone Request a Quote Button */}
+              <Link href="/quote" className="ml-2 bg-[#d4af37] text-white px-6 py-2.5 rounded-full font-semibold font-body tracking-wide hover:bg-[#b08d20] transition-colors shadow-sm text-sm">
+                Request a Quote
+              </Link>
             </div>
           </div>
         </div>
@@ -239,10 +242,13 @@ export default function Nav() {
                 className="block px-6 py-4 text-ink font-body border-b border-stone/50 hover:bg-stone transition">
                 Service Area
               </Link>
-              <Link href="/quote" onClick={() => setMobileOpen(false)}
-                className="block px-6 py-4 text-forest font-semibold font-body hover:bg-stone transition">
-                Request a Quote
-              </Link>
+              
+              <div className="px-6 py-6 border-b border-stone/50">
+                <Link href="/quote" onClick={() => setMobileOpen(false)}
+                  className="block w-full text-center bg-[#d4af37] text-white py-3 rounded-full font-semibold font-body tracking-wide shadow-sm">
+                  Request a Quote
+                </Link>
+              </div>
             </div>
           )}
         </div>
