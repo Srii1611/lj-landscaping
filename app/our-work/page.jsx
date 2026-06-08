@@ -13,34 +13,35 @@ export default function OurWorkPage() {
   return (
     <main>
       {/* Page Hero */}
-      <section className="bg-cream py-16 px-6 text-center">
-        <div className="max-w-7xl mx-auto">
-          <div className="max-w-3xl mx-auto">
-            <p className="text-gold uppercase tracking-widest text-xs font-semibold">
-              OUR PORTFOLIO
-            </p>
-            <h1 className="font-display text-forest text-4xl md:text-5xl mt-3">
-              Projects that speak for themselves.
-            </h1>
-            <p className="text-ink/70 mt-4">
-              Every lawn, every cleanup, every patio — photographed on the job.
-            </p>
-          </div>
+      <section className="pad-sm" style={{ background: '#f7f4ec' }}>
+        <div className="wrap center">
+          <p className="kicker">Our Portfolio</p>
+          <h1 className="h2">Projects that speak for themselves.</h1>
+          <p className="lead">
+            Every lawn, every cleanup, every patio — photographed on the job.
+          </p>
         </div>
       </section>
 
       {/* Filter pills */}
-      <div className="bg-cream py-6 border-b border-stone">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 flex flex-wrap justify-center gap-3">
+      <div style={{ background: '#f7f4ec', borderBottom: '1px solid #e7e1d3', padding: '20px 0' }}>
+        <div className="wrap" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '12px' }}>
           {categories.map((cat) => (
             <button
               key={cat.key}
               onClick={() => setActive(cat.key)}
-              className={`px-6 py-2.5 rounded-full text-sm font-body cursor-pointer transition font-medium ${
-                active === cat.key
-                  ? 'bg-forest text-cream shadow-sm'
-                  : 'bg-stone text-ink hover:bg-stone/70'
-              }`}
+              style={{
+                padding: '10px 24px',
+                borderRadius: '999px',
+                fontSize: '14px',
+                fontFamily: 'var(--font-body)',
+                fontWeight: 600,
+                border: 'none',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+                background: active === cat.key ? '#1f3d2b' : '#e7e1d3',
+                color: active === cat.key ? '#f7f4ec' : '#1c1b17',
+              }}
             >
               {cat.label}
             </button>
@@ -49,16 +50,32 @@ export default function OurWorkPage() {
       </div>
 
       {/* Gallery grid */}
-      <section className="bg-cream py-12">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <section className="pad" style={{ background: '#f7f4ec' }}>
+        <div className="wrap">
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, 1fr)',
+            gap: '24px',
+          }} className="portfolio-grid">
             {filtered.map((item) => (
-              <div key={item.id}
-                className="group cursor-pointer overflow-hidden rounded-2xl border border-stone/50 shadow-sm hover:shadow-md transition-shadow duration-300">
-                <Placeholder label={item.label} ratio="aspect-[4/3]"
-                  className="rounded-none group-hover:scale-105 transition-transform duration-500"/>
-                <div className="bg-white px-4 py-3 border-t border-stone/30">
-                  <p className="text-xs font-body text-ink/60 uppercase tracking-wide">
+              <div key={item.id} style={{
+                borderRadius: '16px',
+                overflow: 'hidden',
+                border: '1px solid rgba(231,225,211,0.8)',
+                boxShadow: '0 2px 12px rgba(0,0,0,0.06)',
+                background: '#fff',
+                transition: 'box-shadow 0.3s ease, transform 0.3s ease',
+              }}>
+                <Placeholder label={item.label} ratio="ratio-43" />
+                <div style={{ padding: '14px 18px', borderTop: '1px solid #e7e1d3' }}>
+                  <p style={{
+                    fontSize: '12px',
+                    fontFamily: 'var(--font-body)',
+                    color: 'rgba(28,27,23,0.55)',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.08em',
+                    fontWeight: 600,
+                  }}>
                     {item.label}
                   </p>
                 </div>
@@ -69,14 +86,26 @@ export default function OurWorkPage() {
       </section>
 
       {/* CTA Strip */}
-      <section className="bg-forest py-16 text-center mt-8">
-        <h3 className="font-display text-cream text-2xl">Like what you see?</h3>
-        <p className="text-cream/70 mt-2">Let&apos;s talk about your property.</p>
-        <Link href="/contact"
-          className="inline-block bg-gold text-forest font-semibold px-10 py-4 rounded-full mt-6 hover:bg-gold/90 transition text-sm tracking-wide">
+      <section style={{
+        background: '#1f3d2b',
+        padding: '72px 24px',
+        textAlign: 'center',
+      }}>
+        <h3 style={{ fontFamily: 'var(--font-display)', color: '#f7f4ec', fontSize: '28px' }}>
+          Like what you see?
+        </h3>
+        <p style={{ color: 'rgba(247,244,236,0.7)', marginTop: '8px', fontSize: '16px' }}>
+          Let&apos;s talk about your property.
+        </p>
+        <Link href="/#quote" className="btn" style={{ marginTop: '24px' }}>
           Request a Free Quote
         </Link>
       </section>
+
+      <style>{`
+        @media (max-width: 880px) { .portfolio-grid { grid-template-columns: 1fr 1fr !important; } }
+        @media (max-width: 560px) { .portfolio-grid { grid-template-columns: 1fr !important; } }
+      `}</style>
     </main>
   );
 }

@@ -1,115 +1,132 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
-
-const seoLocations = [
-  "Framingham Landscaping",
-  "Natick Lawn Care",
-  "Wayland Landscaping",
-  "Sudbury Lawn Care",
-  "Ashland Landscaping",
-  "Jamaica Plain Landscaping",
-  "Roxbury Lawn Care",
-  "Wellesley Landscaping",
-  "Newton Lawn Care",
-  "Weston Landscaping",
-  "Holliston Landscaping",
-  "Hopkinton Lawn Care",
-  "Milford Landscaping",
-  "Northborough Lawn Care",
-  "Westborough Landscaping",
-  "Sherborn Lawn Care",
-  "Medfield Landscaping",
-  "Dover Landscaping",
-];
 
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer style={{ background: "#1f3d2b", color: "#f7f4ec" }}>
+    <footer style={{ background: 'linear-gradient(180deg, #1a3425 0%, #142a1e 100%)', color: '#f7f4ec' }}>
+
+      {/* Main footer content */}
       <div className="wrap">
+        <div className="footer-top" style={{
+          display: 'grid',
+          gridTemplateColumns: '1.6fr 1fr 1fr 1.2fr',
+          gap: '48px',
+          padding: '72px 0 56px',
+        }}>
 
-        {/* Main columns */}
-        <div className="footer-top" style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr 1fr 1.2fr", gap: "40px", padding: "70px 0 50px" }}>
-
-          {/* Brand */}
+          {/* Brand + Logo */}
           <div>
-            <div style={{ display: "flex", flexDirection: "column", lineHeight: 0.92 }}>
-              <span style={{ fontFamily: "var(--font-display)", fontSize: "30px", fontWeight: 700 }}>L&amp;J</span>
-              <span style={{ fontSize: "10px", letterSpacing: "0.34em", textTransform: "uppercase", opacity: 0.8, marginTop: "3px" }}>Landscaping</span>
-            </div>
-            <p style={{ marginTop: "16px", fontSize: "14px", opacity: 0.78, maxWidth: "280px", lineHeight: 1.65 }}>
+            <img
+              src="/logo.png"
+              alt="L&J Landscaping"
+              style={{ height: '100px', width: 'auto', display: 'block', marginBottom: '20px' }}
+            />
+            <p style={{ fontSize: '14px', color: '#f0e6ce', opacity: 0.7, maxWidth: '280px', lineHeight: 1.7 }}>
               Family-owned landscaping and lawn care, serving Framingham, Natick, and Greater Boston&apos;s Metro West
               for nearly three decades. Two generations, one standard.
             </p>
+
+            {/* Social icons */}
+            <div style={{ display: 'flex', gap: '14px', marginTop: '20px' }}>
+              <a href="https://instagram.com/YOUR_USERNAME" target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(240,230,206,0.5)', transition: 'color 0.2s' }} aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                </svg>
+              </a>
+              <a href="https://facebook.com/YOUR_PAGE" target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(240,230,206,0.5)', transition: 'color 0.2s' }} aria-label="Facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                </svg>
+              </a>
+            </div>
           </div>
 
           {/* Services */}
           <div>
-            <h5 style={{ fontSize: "12px", letterSpacing: "0.2em", textTransform: "uppercase", color: "#c9a24b", marginBottom: "16px", fontFamily: "var(--font-body)", fontWeight: 700 }}>
+            <h5 style={{
+              fontSize: '13px', letterSpacing: '0.2em', textTransform: 'uppercase',
+              color: '#c9a24b', marginBottom: '20px', fontFamily: 'var(--font-display)', fontWeight: 700,
+            }}>
               Services
             </h5>
-            <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "9px", fontSize: "14.5px", opacity: 0.85 }}>
-              {["Lawn Maintenance", "Spring Cleanup", "Fall Cleanup", "Light Masonry & Patios", "Fencing", "Aeration"].map((s) => (
-                <li key={s}><a href="#services">{s}</a></li>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              {['Lawn Maintenance', 'Spring Cleanup', 'Fall Cleanup', 'Light Masonry & Patios', 'Fencing', 'Aeration'].map((s) => (
+                <li key={s}>
+                  <Link href="/services" style={{ fontSize: '14.5px', color: '#f0e6ce', opacity: 0.7, transition: 'all 0.2s' }}>
+                    {s}
+                  </Link>
+                </li>
               ))}
             </ul>
           </div>
 
           {/* Explore */}
           <div>
-            <h5 style={{ fontSize: "12px", letterSpacing: "0.2em", textTransform: "uppercase", color: "#c9a24b", marginBottom: "16px", fontFamily: "var(--font-body)", fontWeight: 700 }}>
+            <h5 style={{
+              fontSize: '13px', letterSpacing: '0.2em', textTransform: 'uppercase',
+              color: '#c9a24b', marginBottom: '20px', fontFamily: 'var(--font-display)', fontWeight: 700,
+            }}>
               Explore
             </h5>
-            <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "9px", fontSize: "14.5px", opacity: 0.85 }}>
-              {[["/our-work", "Our Work"], ["/about", "Our Story"], ["/reviews", "Reviews"], ["/contact", "Contact"]].map(([href, label]) => (
-                <li key={href}><Link href={href}>{label}</Link></li>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              {[['/our-work', 'Our Work'], ['/about', 'Our Story'], ['/reviews', 'Reviews'], ['/service-area', 'Service Area']].map(([href, label]) => (
+                <li key={href}>
+                  <Link href={href} style={{ fontSize: '14.5px', color: '#f0e6ce', opacity: 0.7, transition: 'all 0.2s' }}>
+                    {label}
+                  </Link>
+                </li>
               ))}
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h5 style={{ fontSize: "12px", letterSpacing: "0.2em", textTransform: "uppercase", color: "#c9a24b", marginBottom: "16px", fontFamily: "var(--font-body)", fontWeight: 700 }}>
-              Get in touch
+            <h5 style={{
+              fontSize: '13px', letterSpacing: '0.2em', textTransform: 'uppercase',
+              color: '#c9a24b', marginBottom: '20px', fontFamily: 'var(--font-display)', fontWeight: 700,
+            }}>
+              Get in Touch
             </h5>
-            <p style={{ fontSize: "14.5px", opacity: 0.85, marginBottom: "9px" }}>Phone: (placeholder)</p>
-            <p style={{ fontSize: "14.5px", opacity: 0.85, marginBottom: "9px" }}>Email: (placeholder)</p>
-            <p style={{ fontSize: "14.5px", opacity: 0.85, marginBottom: "9px" }}>Framingham, MA &middot; Metro West</p>
-            <Link href="/contact" style={{ display: "inline-block", marginTop: "10px", color: "#c9a24b", fontWeight: 600, fontSize: "14px" }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', fontSize: '14.5px', color: '#f0e6ce', opacity: 0.7 }}>
+              <p>Phone: (placeholder)</p>
+              <p>Email: (placeholder)</p>
+              <p>Framingham, MA &middot; Metro West</p>
+            </div>
+            <Link href="/#quote" style={{
+              display: 'inline-flex', alignItems: 'center', gap: '6px',
+              marginTop: '18px', color: '#c9a24b', fontWeight: 700, fontSize: '14px',
+              letterSpacing: '0.02em', transition: 'all 0.2s',
+            }}>
               Request a free estimate &rarr;
             </Link>
           </div>
         </div>
 
-        {/* SEO Locations strip */}
-        <div style={{ borderTop: "1px solid rgba(247,244,236,0.1)", padding: "28px 0 32px" }}>
-          <p style={{ fontSize: "11px", letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(247,244,236,0.4)", marginBottom: "14px", fontWeight: 600 }}>
-            Areas we serve
-          </p>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "8px 0" }}>
-            {seoLocations.map((loc, i) => (
-              <span key={loc}>
-                <a href="#area" className="loc-link">{loc}</a>
-                {i < seoLocations.length - 1 && (
-                  <span style={{ color: "rgba(247,244,236,0.2)", margin: "0 10px" }}>·</span>
-                )}
-              </span>
-            ))}
-          </div>
-        </div>
+        {/* Divider */}
+        <div style={{ height: '1px', background: 'linear-gradient(90deg, transparent, rgba(201,162,75,0.25), transparent)' }} />
 
         {/* Bottom bar */}
-        <div style={{ borderTop: "1px solid rgba(247,244,236,0.1)", padding: "22px 0", textAlign: "center", fontSize: "12.5px", opacity: 0.45 }}>
-          &copy; {year} L&amp;J Landscaping. All rights reserved. &middot; Family-owned &middot; 27 years in the trade.
+        <div style={{
+          padding: '24px 0',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          gap: '12px',
+          fontSize: '12.5px',
+          color: 'rgba(240,230,206,0.4)',
+        }}>
+          <span>&copy; {year} L&amp;J Landscaping. All rights reserved.</span>
+          <span>Family-owned &middot; 27 years in the trade.</span>
         </div>
       </div>
 
       <style>{`
-        @media (max-width: 880px) { .footer-top { grid-template-columns: 1fr 1fr !important; gap: 36px; } }
+        @media (max-width: 880px) { .footer-top { grid-template-columns: 1fr 1fr !important; gap: 40px; } }
         @media (max-width: 520px) { .footer-top { grid-template-columns: 1fr !important; } }
-        footer ul a:hover { color: #c9a24b; }
-        .loc-link { font-size: 13px; color: rgba(247,244,236,0.55); transition: color .2s; }
-        .loc-link:hover { color: #c9a24b; }
+        footer ul a:hover { color: #c9a24b !important; opacity: 1 !important; }
       `}</style>
     </footer>
   );

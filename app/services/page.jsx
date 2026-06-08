@@ -1,17 +1,40 @@
 import Link from "next/link";
 
+const services = [
+  { title: "Lawn Maintenance", desc: "Weekly or biweekly mowing, clean lines, crisp edging, fertilization five times a year, and weed control. The same schedule, the same crew, every visit.", tag: "Recurring · weekly / biweekly" },
+  { title: "Spring Cleanup", desc: "Clear the winter debris, cut back tired growth, re-edge beds, lay fresh mulch. One thorough visit and the whole property looks alive again.", tag: "Seasonal" },
+  { title: "Fall Cleanup", desc: "Full leaf removal, final cuts, deep bed and border cleanup. Close the season right so the lawn bounces back lush in spring.", tag: "Seasonal" },
+  { title: "Light Masonry & Patios", desc: "Hand-built walkways, steps, and patios — careful stonework, no heavy machinery. Built to last and finished to look like it belongs." },
+  { title: "Fencing", desc: "Clean, sturdy fence installation that defines your space. Straight lines, solid posts, a finish that holds up to New England seasons." },
+  { title: "Irrigation", desc: "Smart watering systems installed through our trusted irrigation partner — your lawn gets exactly what it needs, nothing wasted." },
+  { title: "Tree Work & Pruning", desc: "Pruning, shaping, and selective tree care. We cut with a plan, not just a saw — keeping your property healthy, safe, and in proportion." },
+  { title: "Mulching & Edging", desc: "Fresh mulch and crisp, hand-cut edges — the small details that separate a maintained yard from a truly finished one." },
+  { title: "Aeration", desc: "Core aeration to relieve compacted soil and let water, air, and nutrients reach the roots. One of the best investments for a healthy lawn.", tag: "Ideal: early September" },
+];
+
 export default function ServicesPage() {
   return (
-    <main style={{ minHeight: "60vh", display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "80px 24px" }}>
-      <div>
-        <p style={{ fontSize: "13px", letterSpacing: "0.2em", textTransform: "uppercase", fontWeight: 600, color: "#5a7d52", marginBottom: "14px" }}>Phase 2</p>
-        <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(30px,4vw,48px)", color: "#1f3d2b" }}>Services page coming soon.</h1>
-        <p style={{ fontSize: "18px", color: "rgba(28,27,23,0.7)", marginTop: "16px", maxWidth: "480px" }}>
-          Full service detail pages are planned for Phase 2. In the meantime, everything you need is on the homepage.
+    <main className="pad">
+      <div className="wrap center">
+        <p className="kicker">What we do</p>
+        <h1 className="h2">Our Services</h1>
+        <p className="lead" style={{ marginBottom: "56px" }}>
+          From a tidy weekly mow to a full seasonal cleanup, we keep it simple: core services done all season, plus the special projects when you want more.
         </p>
-        <Link href="/#services" style={{ display: "inline-flex", alignItems: "center", gap: "8px", background: "#c9a24b", color: "#1f3d2b", fontWeight: 700, fontSize: "14px", padding: "12px 22px", borderRadius: "999px", marginTop: "26px" }}>
-          See services on homepage &rarr;
-        </Link>
+
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "40px", textAlign: "left" }}>
+          {services.map((s) => (
+            <div key={s.title} style={{ padding: "32px", background: "#f7f4ec", borderRadius: "16px" }}>
+              <h3 style={{ fontSize: "18px", fontWeight: 700, color: "#1f3d2b", marginBottom: "12px" }}>{s.title}</h3>
+              <p style={{ fontSize: "15px", color: "rgba(28,27,23,0.7)", lineHeight: 1.65 }}>{s.desc}</p>
+              {s.tag && <span style={{ display: "block", marginTop: "12px", fontSize: "12px", color: "#5a7d52", fontWeight: 600 }}>{s.tag}</span>}
+            </div>
+          ))}
+        </div>
+
+        <div style={{ marginTop: "64px" }}>
+          <Link href="/#quote" className="btn">Request a Quote &rarr;</Link>
+        </div>
       </div>
     </main>
   );
