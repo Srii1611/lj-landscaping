@@ -19,6 +19,8 @@ const areas = [
   { town: "Sherborn", label: "Sherborn Lawn Care" },
   { town: "Medfield", label: "Medfield Landscaping" },
   { town: "Dover", label: "Dover Landscaping" },
+  { town: "Needham", label: "Needham Landscaping" },
+  { town: "Dedham", label: "Dedham Lawn Care" },
 ];
 
 export default function ServiceAreaPage() {

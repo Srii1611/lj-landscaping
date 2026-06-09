@@ -41,7 +41,7 @@ export default function AboutPage() {
                   mouth. No website, no ads. Just quality work and clients who kept calling back.
                 </p>
                 <p>
-                  Luis joined the crew in 2021, learning the trade from the ground up alongside
+                  Luis joined the crew in 2020, learning the trade from the ground up alongside
                   his father. In 2022 they launched L&amp;J Landscaping together — a fresh name
                   carrying forward everything Jose built: the reliability, the attention to detail,
                   and the belief that every property deserves to be treated like their own.
