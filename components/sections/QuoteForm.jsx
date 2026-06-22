@@ -67,8 +67,8 @@ export default function QuoteForm() {
               <form onSubmit={handleSubmit}>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }} className="form-row">
                   <div className="fgroup">
-                    <label style={labelStyle} htmlFor="fName">First name</label>
-                    <input id="fName" type="text" placeholder="Your first name" value={fields.name} onChange={set("name")} style={inputStyle} />
+                    <label style={labelStyle} htmlFor="fName">Full name</label>
+                    <input id="fName" type="text" placeholder="Your full name" value={fields.name} onChange={set("name")} style={inputStyle} />
                   </div>
                   <div className="fgroup">
                     <label style={labelStyle} htmlFor="fPhone">Phone</label>

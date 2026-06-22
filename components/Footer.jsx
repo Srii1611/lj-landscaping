@@ -90,9 +90,9 @@ export default function Footer() {
               Get in Touch
             </h5>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', fontSize: '14.5px', color: '#f0e6ce', opacity: 0.7 }}>
-              <p>Phone: (placeholder)</p>
-              <p>Email: (placeholder)</p>
-              <p>Framingham, MA &middot; Metro West</p>
+              <a href="tel:+15086650285" style={{ color: 'inherit', transition: 'color 0.2s' }}>Phone: (508) 665-0285</a>
+              <a href="mailto:landjlandscapingma@gmail.com" style={{ color: 'inherit', transition: 'color 0.2s', wordBreak: 'break-word' }}>Email: landjlandscapingma@gmail.com</a>
+              <p>12 Torrey St, Framingham, MA</p>
             </div>
             <Link href="/#quote" style={{
               display: 'inline-flex', alignItems: 'center', gap: '6px',
