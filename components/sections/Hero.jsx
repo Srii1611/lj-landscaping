@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import Image from "next/image";
 
 export default function Hero() {
   const [town, setTown] = useState("");
@@ -29,13 +28,17 @@ export default function Hero() {
     >
       {/* Background */}
       <div style={{ position: "absolute", inset: 0, background: "#1f3d2b" }}>
-        <Image
-          src="/j65Dt-hero.webp"
-          alt="Beautifully landscaped backyard with stone patio and lush green lawn"
-          fill
-          priority
-          style={{ objectFit: "cover", objectPosition: "center" }}
-        />
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/hero-poster.jpg"
+          aria-hidden="true"
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
+        >
+          <source src="/hero.mp4" type="video/mp4" />
+        </video>
         {/* Left-side legibility gradient */}
         <div style={{ position: "absolute", inset: 0, zIndex: 2, background: "linear-gradient(90deg, rgba(16,32,22,0.88) 0%, rgba(16,32,22,0.55) 50%, rgba(16,32,22,0.18) 100%)" }} />
       </div>

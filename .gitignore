@@ -44,3 +44,6 @@ next-env.d.ts
 
 # claude code local tooling
 .claude/
+
+# large video source files (only optimized web exports are committed)
+*.mov
