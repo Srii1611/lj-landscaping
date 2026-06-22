@@ -47,3 +47,7 @@ next-env.d.ts
 
 # large video source files (only optimized web exports are committed)
 *.mov
+
+# raw source images (only optimized web exports are committed)
+public/grok-*.jpg
+public/finished-lawn.png
