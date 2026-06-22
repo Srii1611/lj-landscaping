@@ -1,5 +1,5 @@
 import Reveal from "@/components/Reveal";
-import Placeholder from "@/components/Placeholder";
+import Image from "next/image";
 
 export default function Intro() {
   return (
@@ -29,7 +29,15 @@ export default function Intro() {
           </Reveal>
 
           <Reveal>
-            <Placeholder label="Photo — finished lawn / property" ratio="ratio-43" style={{ borderRadius: "22px" }} />
+            <div style={{ position: "relative", aspectRatio: "4/3", borderRadius: "22px", overflow: "hidden", boxShadow: "0 18px 50px rgba(31,61,43,0.18)" }}>
+              <Image
+                src="/finished-lawn.webp"
+                alt="Freshly mowed, healthy lawn with manicured mulch beds and evergreens"
+                fill
+                sizes="(max-width: 880px) 100vw, 45vw"
+                style={{ objectFit: "cover", objectPosition: "center" }}
+              />
+            </div>
           </Reveal>
         </div>
       </div>
