@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 function PinIcon() {
   return (
@@ -10,28 +11,30 @@ function PinIcon() {
   );
 }
 
-function PhotoSlot({ label }) {
+function PhotoSlot({ src, alt }) {
   return (
     <div style={{
       aspectRatio: "4/3",
       background: "#e7e1d3",
       borderRadius: "14px 14px 0 0",
-      display: "flex", alignItems: "center", justifyContent: "center",
       position: "relative", overflow: "hidden",
-      color: "rgba(31,61,43,0.42)", fontSize: "11px",
-      letterSpacing: "0.18em", textTransform: "uppercase",
     }}>
-      <div style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(45deg, rgba(31,61,43,0.03) 0 14px, transparent 14px 28px)" }} />
-      <span style={{ position: "relative", zIndex: 1, padding: "8px 14px", textAlign: "center" }}>{label}</span>
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        sizes="(max-width: 560px) 100vw, (max-width: 880px) 50vw, 33vw"
+        style={{ objectFit: "cover" }}
+      />
     </div>
   );
 }
 
-function ServiceTile({ label, title, desc, tag }) {
+function ServiceTile({ src, title, desc, tag }) {
   return (
     <div style={{ textAlign: "center" }}>
       <div style={{ position: "relative", paddingBottom: "38px" }}>
-        <PhotoSlot label={label} />
+        <PhotoSlot src={src} alt={title} />
         <div style={{ position: "absolute", bottom: 0, left: "50%", transform: "translateX(-50%)", zIndex: 2 }}>
           <PinIcon />
         </div>
@@ -57,50 +60,50 @@ function ServiceTile({ label, title, desc, tag }) {
 
 const services = [
   {
-    label: "Photo — lawn mowing",
+    src: "/svc-lawn.webp",
     title: "Lawn Maintenance",
     desc: "Weekly or biweekly mowing, clean lines, crisp edging, fertilization five times a year, and weed control. The same schedule, the same crew, every visit.",
     tag: "Recurring · weekly / biweekly",
   },
   {
-    label: "Photo — spring cleanup",
+    src: "/svc-spring.webp",
     title: "Spring Cleanup",
     desc: "Clear the winter debris, cut back tired growth, re-edge beds, lay fresh mulch. One thorough visit and the whole property looks alive again.",
     tag: "Seasonal",
   },
   {
-    label: "Photo — fall cleanup",
+    src: "/svc-fall.webp",
     title: "Fall Cleanup",
     desc: "Full leaf removal, final cuts, deep bed and border cleanup. Close the season right so the lawn bounces back lush in spring.",
     tag: "Seasonal",
   },
   {
-    label: "Photo — masonry patio",
+    src: "/svc-masonry.webp",
     title: "Light Masonry & Patios",
     desc: "Hand-built walkways, steps, and patios — careful stonework, no heavy machinery. Built to last and finished to look like it belongs.",
   },
   {
-    label: "Photo — fencing",
+    src: "/svc-fence.webp",
     title: "Fencing",
     desc: "Clean, sturdy fence installation that defines your space. Straight lines, solid posts, a finish that holds up to New England seasons.",
   },
   {
-    label: "Photo — irrigation system",
+    src: "/svc-irrigation.webp",
     title: "Irrigation",
     desc: "Smart watering systems installed through our trusted irrigation partner — your lawn gets exactly what it needs, nothing wasted.",
   },
   {
-    label: "Photo — tree pruning",
+    src: "/svc-tree.webp",
     title: "Tree Work & Pruning",
     desc: "Pruning, shaping, and selective tree care. We cut with a plan, not just a saw — keeping your property healthy, safe, and in proportion.",
   },
   {
-    label: "Photo — mulching & edging",
+    src: "/svc-mulch.webp",
     title: "Mulching & Edging",
     desc: "Fresh mulch and crisp, hand-cut edges — the small details that separate a maintained yard from a truly finished one.",
   },
   {
-    label: "Photo — aeration",
+    src: "/svc-aeration.webp",
     title: "Aeration",
     desc: "Core aeration to relieve compacted soil and let water, air, and nutrients reach the roots. One of the best investments for a healthy lawn.",
     tag: "Ideal: early September",
