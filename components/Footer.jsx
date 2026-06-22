@@ -21,7 +21,7 @@ export default function Footer() {
             <img
               src="/logo.png"
               alt="L&J Landscaping"
-              style={{ height: '100px', width: 'auto', display: 'block', marginBottom: '20px' }}
+              style={{ height: '170px', width: 'auto', display: 'block', marginBottom: '20px', marginLeft: '-8px' }}
             />
             <p style={{ fontSize: '14px', color: '#f0e6ce', opacity: 0.7, maxWidth: '280px', lineHeight: 1.7 }}>
               Family-owned landscaping and lawn care, serving Framingham, Natick, and Greater Boston&apos;s Metro West

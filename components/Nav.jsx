@@ -22,14 +22,25 @@ const contactItems = [
   { label: 'Request Quote', href: '/#quote' },
 ]
 
-const navLink = (active) =>
-  `font-display text-[17px] font-semibold tracking-[0.14em] uppercase transition-all duration-300 whitespace-nowrap text-[#c9a24b] ${
+const navBase =
+  'font-display text-[17px] font-semibold tracking-[0.14em] uppercase transition-all duration-300 whitespace-nowrap'
+
+// Home / About / Portfolio — beige, warms to gold on hover, gold underline when active
+const beigeLink = (active) =>
+  `${navBase} text-[#e8dcc0] hover:text-[#c9a24b] ${
+    active ? 'underline decoration-2 underline-offset-[10px] decoration-[#c9a24b]' : ''
+  }`
+
+// Services / Contact — gold (kept the same color)
+const goldLink = (active) =>
+  `${navBase} text-[#c9a24b] ${
     active ? 'drop-shadow-[0_0_8px_rgba(201,162,75,0.4)]' : 'hover:drop-shadow-[0_0_8px_rgba(201,162,75,0.3)]'
   }`
 
 function Dropdown({ label, items, isActive, pathname }) {
   const [open, setOpen] = useState(false)
   const ref = useRef(null)
+  const twoCol = items.length > 5
 
   useEffect(() => {
     function handleClick(e) {
@@ -43,7 +54,7 @@ function Dropdown({ label, items, isActive, pathname }) {
     <div ref={ref} className="relative">
       <button
         onClick={() => setOpen(!open)}
-        className={`${navLink(isActive)} flex items-center gap-1.5 cursor-pointer`}
+        className={`${goldLink(isActive)} flex items-center gap-1.5 cursor-pointer`}
       >
         {label}
         <svg width="10" height="6" viewBox="0 0 10 6" fill="none" className={`transition-transform duration-300 ${open ? 'rotate-180' : ''}`}>
@@ -53,28 +64,33 @@ function Dropdown({ label, items, isActive, pathname }) {
 
       {open && (
         <div
-          className="absolute top-full left-1/2 -translate-x-1/2 mt-4 min-w-[240px] rounded-xl overflow-hidden z-50"
+          className={`absolute top-full left-1/2 -translate-x-1/2 mt-5 rounded-2xl z-50 p-2.5 ${twoCol ? 'w-[460px]' : 'w-[240px]'}`}
           style={{
-            backgroundColor: '#1a3425',
-            border: '1px solid rgba(201,162,75,0.15)',
-            boxShadow: '0 20px 50px rgba(0,0,0,0.35)',
+            backgroundColor: '#16301f',
+            border: '1px solid rgba(201,162,75,0.22)',
+            boxShadow: '0 24px 60px rgba(0,0,0,0.45)',
           }}
         >
-          {items.map(({ label: itemLabel, href }, i) => (
-            <Link
-              key={`${href}-${i}`}
-              href={href}
-              onClick={() => setOpen(false)}
-              style={{ color: '#f0e6ce' }}
-              className={`block px-6 py-3.5 font-display text-[14px] font-semibold tracking-[0.06em] transition-all duration-200 border-b border-white/5 last:border-0 ${
-                pathname === href
-                  ? 'bg-white/5'
-                  : 'hover:bg-white/[0.03] hover:pl-7'
-              }`}
-            >
-              {itemLabel}
-            </Link>
-          ))}
+          <div className={twoCol ? 'grid grid-cols-2 gap-1' : 'flex flex-col gap-0.5'}>
+            {items.map(({ label: itemLabel, href }, i) => {
+              const current = pathname === href
+              return (
+                <Link
+                  key={`${href}-${i}`}
+                  href={href}
+                  onClick={() => setOpen(false)}
+                  style={{ fontFamily: 'var(--font-body)' }}
+                  className={`block px-4 py-2.5 rounded-lg text-[14px] font-medium tracking-[0.01em] transition-colors duration-200 ${
+                    current
+                      ? 'bg-[#c9a24b]/10 text-[#c9a24b]'
+                      : 'text-[#e8dcc0] hover:bg-[#c9a24b]/10 hover:text-[#c9a24b]'
+                  }`}
+                >
+                  {itemLabel}
+                </Link>
+              )
+            })}
+          </div>
         </div>
       )}
     </div>
@@ -107,11 +123,11 @@ export default function Nav() {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-10">
-          <Link href="/" className={navLink(pathname === '/')}>
+          <Link href="/" className={beigeLink(pathname === '/')}>
             Home
           </Link>
 
-          <Link href="/about" className={navLink(pathname === '/about')}>
+          <Link href="/about" className={beigeLink(pathname === '/about')}>
             About Us
           </Link>
 
@@ -122,7 +138,7 @@ export default function Nav() {
             pathname={pathname}
           />
 
-          <Link href="/our-work" className={navLink(pathname === '/our-work')}>
+          <Link href="/our-work" className={beigeLink(pathname === '/our-work')}>
             Portfolio
           </Link>
 
@@ -182,11 +198,11 @@ export default function Nav() {
       {/* Mobile Menu */}
       {mobileOpen && (
         <div className="md:hidden" style={{ backgroundColor: '#1a3425', borderTop: '1px solid rgba(201,162,75,0.1)' }}>
-          <Link href="/" onClick={() => setMobileOpen(false)} className={`block px-8 py-4 font-display text-[14px] tracking-[0.1em] uppercase text-[#c9a24b] border-b border-white/5 transition-all duration-200 ${pathname === '/' ? 'brightness-125' : ''}`}>
+          <Link href="/" onClick={() => setMobileOpen(false)} className={`block px-8 py-4 font-display text-[14px] tracking-[0.1em] uppercase text-[#e8dcc0] border-b border-white/5 transition-all duration-200 ${pathname === '/' ? 'brightness-125' : ''}`}>
             Home
           </Link>
 
-          <Link href="/about" onClick={() => setMobileOpen(false)} className={`block px-8 py-4 font-display text-[14px] tracking-[0.1em] uppercase text-[#c9a24b] border-b border-white/5 transition-all duration-200 ${pathname === '/about' ? 'brightness-125' : ''}`}>
+          <Link href="/about" onClick={() => setMobileOpen(false)} className={`block px-8 py-4 font-display text-[14px] tracking-[0.1em] uppercase text-[#e8dcc0] border-b border-white/5 transition-all duration-200 ${pathname === '/about' ? 'brightness-125' : ''}`}>
             About Us
           </Link>
 
@@ -211,7 +227,7 @@ export default function Nav() {
             )}
           </div>
 
-          <Link href="/our-work" onClick={() => setMobileOpen(false)} className={`block px-8 py-4 font-display text-[14px] tracking-[0.1em] uppercase text-[#c9a24b] border-b border-white/5 transition-all duration-200 ${pathname === '/our-work' ? 'brightness-125' : ''}`}>
+          <Link href="/our-work" onClick={() => setMobileOpen(false)} className={`block px-8 py-4 font-display text-[14px] tracking-[0.1em] uppercase text-[#e8dcc0] border-b border-white/5 transition-all duration-200 ${pathname === '/our-work' ? 'brightness-125' : ''}`}>
             Portfolio
           </Link>
 
