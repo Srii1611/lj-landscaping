@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
-import Placeholder from '@/components/Placeholder';
+import Image from 'next/image';
 import { galleryItems, categories } from '@/data/gallery';
 
 export default function OurWorkPage() {
@@ -66,7 +66,15 @@ export default function OurWorkPage() {
                 background: '#fff',
                 transition: 'box-shadow 0.3s ease, transform 0.3s ease',
               }}>
-                <Placeholder label={item.label} ratio="ratio-43" />
+                <div style={{ position: 'relative', aspectRatio: '4/3', overflow: 'hidden' }}>
+                  <Image
+                    src={item.src}
+                    alt={item.label}
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    sizes="(max-width: 560px) 100vw, (max-width: 880px) 50vw, 33vw"
+                  />
+                </div>
                 <div style={{ padding: '14px 18px', borderTop: '1px solid #e7e1d3' }}>
                   <p style={{
                     fontSize: '12px',

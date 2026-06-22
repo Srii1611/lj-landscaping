@@ -123,23 +123,14 @@ a { text-decoration: none; color: inherit; }
   font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700;
 }
 .ba-before {
-  background: linear-gradient(160deg, #8d8466 0%, #6f6a4e 55%, #54513b 100%);
-  color: rgba(255,255,255,0.55);
-}
-.ba-before::after {
-  content: ""; position: absolute; inset: 0;
-  background-image:
-    radial-gradient(circle at 20% 30%, rgba(80,70,40,0.6) 0 8px, transparent 9px),
-    radial-gradient(circle at 70% 60%, rgba(90,80,45,0.5) 0 10px, transparent 11px),
-    radial-gradient(circle at 45% 80%, rgba(70,65,40,0.5) 0 7px, transparent 8px);
+  background: #1c2a1e;
+  background-size: cover; background-position: center;
+  color: rgba(255,255,255,0.9);
 }
 .ba-after {
-  background: linear-gradient(160deg, #3f7a44 0%, #2f5e34 60%, #244a28 100%);
-  color: rgba(255,255,255,0.6); clip-path: inset(0 0 0 50%);
-}
-.ba-after::after {
-  content: ""; position: absolute; inset: 0;
-  background-image: repeating-linear-gradient(90deg, rgba(255,255,255,0.06) 0 18px, transparent 18px 36px);
+  background: #1c2a1e;
+  background-size: cover; background-position: center;
+  color: rgba(255,255,255,0.9); clip-path: inset(0 0 0 50%);
 }
 .ba-label { position: relative; z-index: 2; background: rgba(0,0,0,0.25); padding: 6px 12px; border-radius: 6px; }
 .ba-handle {

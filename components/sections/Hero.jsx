@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Hero() {
   const [town, setTown] = useState("");
@@ -28,18 +29,13 @@ export default function Hero() {
     >
       {/* Background */}
       <div style={{ position: "absolute", inset: 0, background: "#1f3d2b" }}>
-        <div
-          style={{
-            position: "absolute", inset: 0, width: "100%", height: "100%",
-            background: "linear-gradient(135deg, #21412e 0%, #15291d 60%, #102016 100%)",
-            display: "flex", alignItems: "center", justifyContent: "center",
-            color: "rgba(247,244,236,0.30)", fontSize: "11px",
-            letterSpacing: "0.18em", textTransform: "uppercase", overflow: "hidden",
-          }}
-        >
-          <div style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(45deg, rgba(247,244,236,0.025) 0 16px, transparent 16px 32px)" }} />
-          <span style={{ position: "relative", zIndex: 1 }}>Hero photo &mdash; real lawn / crew at work</span>
-        </div>
+        <Image
+          src="/j65Dt-hero.webp"
+          alt="Beautifully landscaped backyard with stone patio and lush green lawn"
+          fill
+          priority
+          style={{ objectFit: "cover", objectPosition: "center" }}
+        />
         {/* Left-side legibility gradient */}
         <div style={{ position: "absolute", inset: 0, zIndex: 2, background: "linear-gradient(90deg, rgba(16,32,22,0.88) 0%, rgba(16,32,22,0.55) 50%, rgba(16,32,22,0.18) 100%)" }} />
       </div>

@@ -50,10 +50,10 @@ export default function BeforeAfter() {
   return (
     <div style={{ maxWidth: "760px", margin: "30px auto 0" }}>
       <div className="ba-frame" ref={frameRef}>
-        <div className="ba-layer ba-before">
+        <div className="ba-layer ba-before" style={{ backgroundImage: "url(/n2jY4.webp)", backgroundSize: "cover", backgroundPosition: "center" }}>
           <span className="ba-label">Before</span>
         </div>
-        <div className="ba-layer ba-after" ref={afterRef}>
+        <div className="ba-layer ba-after" ref={afterRef} style={{ backgroundImage: "url(/c9qE4-1.jpg)", backgroundSize: "cover", backgroundPosition: "center" }}>
           <span className="ba-label">After</span>
         </div>
         <div className="ba-handle" ref={handleRef}>
