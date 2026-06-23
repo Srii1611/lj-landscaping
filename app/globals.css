@@ -180,3 +180,60 @@ a { text-decoration: none; color: inherit; }
 @keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
 .reveal.in { opacity: 1; transform: none; }
+
+/* ---- PREMIUM NAV (categorized mega menu) ---- */
+.megnav-bar {
+  background-color: #1f3d2b;
+  border: 1px solid rgba(201,162,75,0.28);
+  border-radius: 22px;
+  box-shadow: 0 14px 38px rgba(0,0,0,0.30);
+}
+.megnav-link {
+  font-family: var(--font-display);
+  font-size: 17px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: #e7d7a8; white-space: nowrap;
+  display: inline-flex; align-items: center; gap: 7px;
+  background: none; border: none; padding: 0; cursor: pointer;
+  transition: color .25s ease;
+}
+.megnav-link:hover, .megnav-link.active { color: #f6ecca; }
+
+.mega-panel {
+  position: absolute; top: 100%; margin-top: 16px; z-index: 50;
+  background-color: #173026;
+  border: 1px solid rgba(201,162,75,0.30);
+  border-radius: 18px;
+  box-shadow: 0 26px 64px rgba(0,0,0,0.45);
+  padding: 22px 24px;
+  animation: fade .22s ease;
+}
+.mega-head {
+  font-family: var(--font-display);
+  font-size: 17px; font-weight: 600; color: #f3ead0;
+  margin: 2px 0 10px 12px;
+}
+.mega-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 9px 12px; border-radius: 10px;
+  font-family: var(--font-body); font-size: 14.5px; font-weight: 500;
+  color: #e7d7a8; transition: background .2s ease, color .2s ease;
+}
+.mega-item:hover { background: rgba(201,162,75,0.12); color: #f6ecca; }
+.mega-item svg { width: 18px; height: 18px; flex-shrink: 0; color: #c9a24b; }
+
+.req-quote {
+  display: inline-flex; align-items: center;
+  padding: 11px 24px; border-radius: 999px;
+  font-family: var(--font-display); font-size: 14px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap;
+  color: #1f3d2b;
+  background: linear-gradient(180deg, #f1d78c 0%, #d4ab53 48%, #b0892f 100%);
+  border: 1px solid rgba(241,215,140,0.7);
+  box-shadow: 0 6px 18px rgba(201,162,75,0.38), inset 0 1px 0 rgba(255,255,255,0.45);
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+.req-quote:hover {
+  transform: translateY(-1px); filter: brightness(1.05);
+  box-shadow: 0 10px 26px rgba(201,162,75,0.5), inset 0 1px 0 rgba(255,255,255,0.55);
+}
