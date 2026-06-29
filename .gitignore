@@ -51,3 +51,7 @@ next-env.d.ts
 # raw source images (only optimized web exports are committed)
 public/grok-*.jpg
 public/finished-lawn.png
+
+# raw client photo/video dump — working material, not used by the site
+# (contains multi-hundred-MB videos that exceed GitHub's 100MB limit)
+/public/Luis shared photos/

@@ -132,14 +132,14 @@ export default function Nav() {
   return (
     <header className="sticky top-0 z-50" style={{ background: 'transparent', padding: '12px 14px 0' }}>
       <div className="megnav-bar max-w-7xl mx-auto">
-        <div className="px-6 lg:px-10 flex items-center justify-between" style={{ height: '88px' }}>
+        <div className="px-6 lg:px-10 flex items-center justify-between relative" style={{ height: '88px' }}>
 
           <Link href="/" className="flex-shrink-0">
             <img src="/logo.png" alt="L&J Landscaping" style={{ height: '74px', width: 'auto', display: 'block' }} />
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-9">
+          {/* Desktop Nav — absolutely centered in the bar, independent of logo / actions widths */}
+          <nav className="hidden md:flex items-center gap-7" style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }}>
             <Link href="/" className={`megnav-link ${pathname === '/' ? 'active' : ''}`}>Home</Link>
             <Link href="/about" className={`megnav-link ${pathname === '/about' ? 'active' : ''}`}>About Us</Link>
             <ServicesMenu pathname={pathname} />
