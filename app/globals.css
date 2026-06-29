@@ -187,6 +187,9 @@ a { text-decoration: none; color: inherit; }
   border: 1px solid rgba(201,162,75,0.28);
   border-radius: 22px;
   box-shadow: 0 14px 38px rgba(0,0,0,0.30);
+  /* Center the bar. The global `* { margin: 0 }` reset is unlayered and would
+     otherwise override Tailwind's layered .mx-auto, pinning the bar to the left. */
+  margin-inline: auto;
 }
 .megnav-link {
   font-family: var(--font-display);
