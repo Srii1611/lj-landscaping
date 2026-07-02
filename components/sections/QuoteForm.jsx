@@ -118,8 +118,7 @@ export default function QuoteForm() {
                   Request My Free Quote
                 </button>
                 <p style={{ fontSize: "12px", color: "rgba(28,27,23,0.5)", textAlign: "center", marginTop: "14px" }}>
-                  Demo form &mdash; not yet wired. Once Luis&apos;s Gmail is set up, this emails the inquiry to him with a
-                  clickable Google Maps link to the address.
+                  We&apos;ll never share your information. Expect a reply within one business day.
                 </p>
               </form>
             ) : (
@@ -131,8 +130,7 @@ export default function QuoteForm() {
                 </div>
                 <h3 style={{ fontSize: "24px", color: "#1f3d2b" }}>Thanks &mdash; we&apos;ve got it!</h3>
                 <p style={{ marginTop: "10px", color: "rgba(28,27,23,0.7)", fontSize: "15px" }}>
-                  This is the success state. In the live site, Luis would get your request by email right away and
-                  reach out to confirm a day and time that works for you.
+                  Luis will get your request by email right away and reach out to confirm a day and time that works for you.
                 </p>
               </div>
             )}

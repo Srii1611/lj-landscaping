@@ -151,7 +151,7 @@ export default function Nav() {
           <div className="hidden md:flex items-center gap-5">
             <Link href="/#quote" className="req-quote">Request Quote</Link>
 
-            <a href="https://instagram.com/YOUR_USERNAME" target="_blank" rel="noopener noreferrer" className="opacity-90 hover:opacity-100 transition-opacity duration-300" aria-label="Instagram">
+            <a href="#" className="opacity-90 hover:opacity-100 transition-opacity duration-300" aria-label="Instagram — coming soon">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="url(#ig-gradient)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <defs>
                   <linearGradient id="ig-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
@@ -166,7 +166,7 @@ export default function Nav() {
               </svg>
             </a>
 
-            <a href="https://facebook.com/YOUR_PAGE" target="_blank" rel="noopener noreferrer" className="text-[#1877F2] opacity-90 hover:opacity-100 transition-opacity duration-300" aria-label="Facebook">
+            <a href="#" className="text-[#1877F2] opacity-90 hover:opacity-100 transition-opacity duration-300" aria-label="Facebook — coming soon">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
               </svg>
@@ -232,7 +232,7 @@ export default function Nav() {
 
             <div className="px-7 py-5 flex items-center gap-5">
               <Link href="/#quote" onClick={() => setMobileOpen(false)} className="req-quote">Request Quote</Link>
-              <a href="https://instagram.com/YOUR_USERNAME" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <a href="#" aria-label="Instagram — coming soon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="url(#ig-gradient-m)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <defs>
                     <linearGradient id="ig-gradient-m" x1="0%" y1="100%" x2="100%" y2="0%">
@@ -242,7 +242,7 @@ export default function Nav() {
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
                 </svg>
               </a>
-              <a href="https://facebook.com/YOUR_PAGE" target="_blank" rel="noopener noreferrer" className="text-[#1877F2]" aria-label="Facebook">
+              <a href="#" className="text-[#1877F2]" aria-label="Facebook — coming soon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
                 </svg>

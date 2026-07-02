@@ -1,4 +1,12 @@
 import Link from "next/link";
+import BreadcrumbSchema from "@/components/Breadcrumb";
+
+export const metadata = {
+  title: "Service Area — Metro West Boston Landscaping | L&J Landscaping",
+  description:
+    "L&J Landscaping serves Framingham, Natick, Wayland, Sudbury, Ashland, Wellesley, and surrounding Metro West towns. Get a free quote today.",
+  alternates: { canonical: "/service-area" },
+};
 
 const areas = [
   { town: "Framingham", label: "Framingham Landscaping" },
@@ -26,6 +34,7 @@ const areas = [
 export default function ServiceAreaPage() {
   return (
     <main>
+      <BreadcrumbSchema page="Service Area" path="/service-area" />
       {/* Hero */}
       <section className="pad" style={{ background: '#f7f4ec' }}>
         <div className="wrap center">
@@ -40,6 +49,7 @@ export default function ServiceAreaPage() {
       {/* Areas Grid */}
       <section className="pad-sm" style={{ background: '#fff' }}>
         <div className="wrap">
+          <h2 className="sr-only">Towns We Serve</h2>
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(3, 1fr)',

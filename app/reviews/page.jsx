@@ -1,9 +1,18 @@
 import Link from 'next/link';
 import { reviews } from '@/data/reviews';
+import BreadcrumbSchema from '@/components/Breadcrumb';
+
+export const metadata = {
+  title: 'Customer Reviews | L&J Landscaping — Framingham & Metro West',
+  description:
+    'See what homeowners in Framingham, Natick, and Metro West say about L&J Landscaping. Reliable, punctual, family-owned lawn care since 2022.',
+  alternates: { canonical: '/reviews' },
+};
 
 export default function ReviewsPage() {
   return (
     <main>
+      <BreadcrumbSchema page="Reviews" path="/reviews" />
       {/* Hero */}
       <section className="bg-cream py-16 text-center">
         <div className="max-w-3xl mx-auto px-4">
@@ -72,7 +81,7 @@ export default function ReviewsPage() {
       <section className="bg-cream text-center py-10">
         <p className="font-display text-forest text-2xl">Ready to experience it for yourself?</p>
         <Link
-          href="/contact"
+          href="/#quote"
           className="bg-forest text-cream font-semibold px-8 py-3 rounded-full mt-6 inline-block"
         >
           Get a Free Quote

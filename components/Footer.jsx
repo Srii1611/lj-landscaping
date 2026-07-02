@@ -11,8 +11,9 @@ export default function Footer() {
       <div className="wrap">
         <div className="footer-top" style={{
           display: 'grid',
-          gridTemplateColumns: '1.6fr 1fr 1fr 1.2fr',
+          gridTemplateColumns: '1.6fr 1fr 1fr 1.4fr',
           gap: '48px',
+          alignItems: 'start',
           padding: '72px 0 56px',
         }}>
 
@@ -21,7 +22,7 @@ export default function Footer() {
             <img
               src="/logo.png"
               alt="L&J Landscaping"
-              style={{ height: '170px', width: 'auto', display: 'block', marginBottom: '20px', marginLeft: '-8px' }}
+              style={{ height: '116px', width: 'auto', display: 'block', marginBottom: '22px' }}
             />
             <p style={{ fontSize: '14px', color: '#f0e6ce', opacity: 0.7, maxWidth: '280px', lineHeight: 1.7 }}>
               Family-owned landscaping and lawn care, serving Framingham, Natick, and Greater Boston&apos;s Metro West
@@ -30,12 +31,12 @@ export default function Footer() {
 
             {/* Social icons */}
             <div style={{ display: 'flex', gap: '14px', marginTop: '20px' }}>
-              <a href="https://instagram.com/YOUR_USERNAME" target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(240,230,206,0.5)', transition: 'color 0.2s' }} aria-label="Instagram">
+              <a href="#" style={{ color: 'rgba(240,230,206,0.5)', transition: 'color 0.2s' }} aria-label="Instagram — coming soon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
                 </svg>
               </a>
-              <a href="https://facebook.com/YOUR_PAGE" target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(240,230,206,0.5)', transition: 'color 0.2s' }} aria-label="Facebook">
+              <a href="#" style={{ color: 'rgba(240,230,206,0.5)', transition: 'color 0.2s' }} aria-label="Facebook — coming soon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
                 </svg>

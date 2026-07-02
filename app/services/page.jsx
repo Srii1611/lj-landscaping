@@ -1,4 +1,12 @@
 import Link from "next/link";
+import BreadcrumbSchema from "@/components/Breadcrumb";
+
+export const metadata = {
+  title: "Lawn Care & Landscaping Services | L&J Landscaping — Framingham, MA",
+  description:
+    "Lawn maintenance, spring & fall cleanups, mulching, light masonry, fencing, and more across Framingham, Natick & Metro West. Family-owned, 27 years of experience.",
+  alternates: { canonical: "/services" },
+};
 
 const services = [
   { title: "Lawn Maintenance", desc: "Weekly or biweekly mowing, clean lines, crisp edging, fertilization five times a year, and weed control. The same schedule, the same crew, every visit.", tag: "Recurring · weekly / biweekly" },
@@ -15,6 +23,7 @@ const services = [
 export default function ServicesPage() {
   return (
     <main className="pad">
+      <BreadcrumbSchema page="Services" path="/services" />
       <div className="wrap center">
         <p className="kicker">What we do</p>
         <h1 className="h2">Our Services</h1>
@@ -22,6 +31,7 @@ export default function ServicesPage() {
           From a tidy weekly mow to a full seasonal cleanup, we keep it simple: core services done all season, plus the special projects when you want more.
         </p>
 
+        <h2 className="sr-only">Our Landscaping Services</h2>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "40px", textAlign: "left" }}>
           {services.map((s) => (
             <div key={s.title} style={{ padding: "32px", background: "#f7f4ec", borderRadius: "16px" }}>

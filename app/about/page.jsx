@@ -1,9 +1,18 @@
 import Link from 'next/link';
-import Placeholder from '@/components/Placeholder';
+import Image from 'next/image';
+import BreadcrumbSchema from '@/components/Breadcrumb';
+
+export const metadata = {
+  title: 'About Us | L&J Landscaping — Family-Owned Since 2022, Framingham MA',
+  description:
+    'Two generations of landscaping expertise. Luis and Jose bring 27+ years of hands-on experience to every lawn in Framingham, Natick, and Metro West Boston.',
+  alternates: { canonical: '/about' },
+};
 
 export default function AboutPage() {
   return (
     <main>
+      <BreadcrumbSchema page="About" path="/about" />
       {/* Hero */}
       <section style={{ background: '#1f3d2b', textAlign: 'center', padding: '80px 24px' }}>
         <div className="wrap">
@@ -27,7 +36,16 @@ export default function AboutPage() {
       <section className="pad" style={{ background: '#f7f4ec' }}>
         <div className="wrap">
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }} className="about-story-grid">
-            <Placeholder label="Jose & Luis — On the job" ratio="ratio-43" />
+            <div style={{ position: 'relative', width: '100%', aspectRatio: '3 / 4', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(31,61,43,0.18)' }}>
+              <Image
+                src="/Luis image.png"
+                alt="Luis — co-owner of L&J Landscaping"
+                fill
+                priority
+                style={{ objectFit: 'cover' }}
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
 
             <div>
               <p className="kicker">The Family</p>
@@ -108,7 +126,15 @@ export default function AboutPage() {
           <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '28px', color: '#1f3d2b', marginBottom: '32px' }}>
             The crew behind the work.
           </h3>
-          <Placeholder label="Full crew photo — Luis, Jose & team" ratio="ratio-169" />
+          <div style={{ position: 'relative', width: '100%', maxWidth: '820px', margin: '0 auto', aspectRatio: '4 / 3', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(31,61,43,0.18)' }}>
+            <Image
+              src="/lj_crew_004.jpg"
+              alt="The L&J Landscaping crew"
+              fill
+              style={{ objectFit: 'cover' }}
+              sizes="(max-width: 880px) 100vw, 820px"
+            />
+          </div>
         </div>
       </section>
 

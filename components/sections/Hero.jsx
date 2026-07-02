@@ -67,7 +67,7 @@ export default function Hero() {
 
           <h1 style={{ fontSize: "clamp(44px, 6.5vw, 82px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.04 }}>
             The <em style={{ fontStyle: "italic", color: "#c9a24b" }}>most reliable</em>
-            <br />crew you&apos;ve seen.
+            <br />lawn care crew you&apos;ve seen.
           </h1>
 
           <p style={{ fontSize: "clamp(17px, 2vw, 20px)", marginTop: "24px", maxWidth: "560px", opacity: 0.9, lineHeight: 1.65 }}>
