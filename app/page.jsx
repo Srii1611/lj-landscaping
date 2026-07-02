@@ -3,7 +3,6 @@ import Intro from "@/components/sections/Intro";
 import Services from "@/components/sections/Services";
 import HowItWorks from "@/components/sections/HowItWorks";
 import Work from "@/components/sections/Work";
-import Reviews from "@/components/sections/Reviews";
 import QuoteForm from "@/components/sections/QuoteForm";
 
 export default function Home() {
@@ -14,7 +13,6 @@ export default function Home() {
       <Services />
       <HowItWorks />
       <Work />
-      <Reviews />
       <QuoteForm />
     </main>
   );

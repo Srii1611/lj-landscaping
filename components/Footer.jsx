@@ -72,7 +72,7 @@ export default function Footer() {
               Explore
             </h5>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              {[['/our-work', 'Our Work'], ['/about', 'Our Story'], ['/reviews', 'Reviews'], ['/service-area', 'Service Area']].map(([href, label]) => (
+              {[['/our-work', 'Our Work'], ['/about', 'Our Story'], ['/service-area', 'Service Area']].map(([href, label]) => (
                 <li key={href}>
                   <Link href={href} style={{ fontSize: '14.5px', color: '#f0e6ce', opacity: 0.7, transition: 'all 0.2s' }}>
                     {label}
