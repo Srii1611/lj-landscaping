@@ -132,14 +132,17 @@ export default function Nav() {
   return (
     <header className="sticky top-0 z-50" style={{ background: 'transparent', padding: '12px 14px 0' }}>
       <div className="megnav-bar max-w-7xl mx-auto">
-        <div className="px-6 lg:px-10 flex items-center justify-between relative" style={{ height: '88px' }}>
+        <div className="flex items-center justify-between gap-4 px-6 lg:px-10" style={{ height: '88px' }}>
 
-          <Link href="/" className="flex-shrink-0">
-            <img src="/logo.png" alt="L&J Landscaping" style={{ height: '74px', width: 'auto', display: 'block' }} />
-          </Link>
+          {/* Left — Logo (equal-width spacer keeps the nav truly centered) */}
+          <div className="flex-1 flex items-center min-w-0">
+            <Link href="/" className="flex-shrink-0">
+              <img src="/logo.png" alt="L&J Landscaping" style={{ height: '72px', width: 'auto', display: 'block' }} />
+            </Link>
+          </div>
 
-          {/* Desktop Nav — absolutely centered in the bar, independent of logo / actions widths */}
-          <nav className="hidden md:flex items-center gap-7" style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }}>
+          {/* Center — Navigation, evenly spaced */}
+          <nav className="hidden lg:flex items-center gap-7 whitespace-nowrap">
             <Link href="/" className={`megnav-link ${pathname === '/' ? 'active' : ''}`}>Home</Link>
             <Link href="/about" className={`megnav-link ${pathname === '/about' ? 'active' : ''}`}>About Us</Link>
             <ServicesMenu pathname={pathname} />
@@ -147,34 +150,34 @@ export default function Nav() {
             <ContactMenu pathname={pathname} />
           </nav>
 
-          {/* Right side */}
-          <div className="hidden md:flex items-center gap-5">
+          {/* Right — Action cluster: quote pill + social icons (equal-width spacer) */}
+          <div className="flex-1 hidden lg:flex items-center justify-end gap-5">
             <Link href="/#quote" className="req-quote">Request Quote</Link>
-
-            <a href="#" className="opacity-90 hover:opacity-100 transition-opacity duration-300" aria-label="Instagram — coming soon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="url(#ig-gradient)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <defs>
-                  <linearGradient id="ig-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#feda75" />
-                    <stop offset="25%" stopColor="#fa7e1e" />
-                    <stop offset="50%" stopColor="#d62976" />
-                    <stop offset="75%" stopColor="#962fbf" />
-                    <stop offset="100%" stopColor="#4f5bd5" />
-                  </linearGradient>
-                </defs>
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-              </svg>
-            </a>
-
-            <a href="#" className="text-[#1877F2] opacity-90 hover:opacity-100 transition-opacity duration-300" aria-label="Facebook — coming soon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-              </svg>
-            </a>
+            <div className="flex items-center gap-3">
+              <a href="#" className="opacity-90 hover:opacity-100 transition-opacity duration-300" aria-label="Instagram — coming soon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="url(#ig-gradient)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <defs>
+                    <linearGradient id="ig-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#feda75" />
+                      <stop offset="25%" stopColor="#fa7e1e" />
+                      <stop offset="50%" stopColor="#d62976" />
+                      <stop offset="75%" stopColor="#962fbf" />
+                      <stop offset="100%" stopColor="#4f5bd5" />
+                    </linearGradient>
+                  </defs>
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                </svg>
+              </a>
+              <a href="#" className="text-[#1877F2] opacity-90 hover:opacity-100 transition-opacity duration-300" aria-label="Facebook — coming soon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                </svg>
+              </a>
+            </div>
           </div>
 
           {/* Mobile Hamburger */}
-          <button onClick={() => setMobileOpen(!mobileOpen)} className="md:hidden text-[#c9a24b] p-1" aria-label="Menu">
+          <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden text-[#c9a24b] p-1" aria-label="Menu">
             {mobileOpen ? (
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="28" height="28">
                 <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
@@ -189,7 +192,7 @@ export default function Nav() {
 
         {/* Mobile Menu */}
         {mobileOpen && (
-          <div className="md:hidden" style={{ borderTop: '1px solid rgba(201,162,75,0.14)', paddingBottom: '12px', overflow: 'hidden', borderRadius: '0 0 22px 22px' }}>
+          <div className="lg:hidden" style={{ borderTop: '1px solid rgba(201,162,75,0.14)', paddingBottom: '12px', overflow: 'hidden', borderRadius: '0 0 22px 22px' }}>
             <Link href="/" onClick={() => setMobileOpen(false)} className={mLink} style={{ color: '#e7d7a8' }}>Home</Link>
             <Link href="/about" onClick={() => setMobileOpen(false)} className={mLink} style={{ color: '#e7d7a8' }}>About Us</Link>
 
