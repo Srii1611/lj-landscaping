@@ -38,7 +38,7 @@ export default function AboutPage() {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }} className="about-story-grid">
             <div style={{ position: 'relative', width: '100%', aspectRatio: '3 / 4', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(31,61,43,0.18)' }}>
               <Image
-                src="/Luis image.png"
+                src="/Luis image.webp"
                 alt="Luis — co-owner of L&J Landscaping"
                 fill
                 priority

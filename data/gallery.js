@@ -29,7 +29,7 @@ export const galleryItems = [
 
   // Shrubs & Trees
   { id: 23, category: 'shrubs',  label: 'Ornamental Grass Bed',         src: '/lj_shrubs_001.jpg' },
-  { id: 24, category: 'shrubs',  label: 'Ornamental Planting Bed',      src: '/lj_shrubs_002.png' },
+  { id: 24, category: 'shrubs',  label: 'Ornamental Planting Bed',      src: '/lj_shrubs_002.webp' },
   { id: 25, category: 'shrubs',  label: 'Seasonal Color Planting',      src: '/lj_shrubs_003.jpg' },
   { id: 26, category: 'shrubs',  label: 'Fall Mum Planting',            src: '/lj_shrubs_004.jpg' },
   { id: 27, category: 'shrubs',  label: 'Seasonal Flower Bed',          src: '/lj_shrubs_005.jpg' },

@@ -55,3 +55,6 @@ public/finished-lawn.png
 # raw client photo/video dump — working material, not used by the site
 # (contains multi-hundred-MB videos that exceed GitHub's 100MB limit)
 /public/Luis shared photos/
+
+# Raw pre-optimization originals
+/raw/
