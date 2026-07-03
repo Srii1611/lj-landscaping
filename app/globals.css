@@ -242,3 +242,59 @@ a { text-decoration: none; color: inherit; }
   transform: translateY(-1px); filter: brightness(1.05);
   box-shadow: 0 10px 26px rgba(201,162,75,0.5), inset 0 1px 0 rgba(255,255,255,0.55);
 }
+
+/* ---- NAV SPACING ----
+   The global `* { padding: 0 }` reset is unlayered and overrides Tailwind's
+   layered px-/py- utilities, so nav padding is declared here as real
+   (unlayered) rules with enough specificity to win the cascade. */
+.megnav-inner { padding-inline: 16px; }
+@media (min-width: 1024px) { .megnav-inner { padding-inline: 40px; } }
+
+.mnav-item { padding: 15px 24px; }        /* mobile menu rows — comfortable tap targets */
+.mnav-cta  { padding: 20px 24px 22px; }   /* mobile menu CTA wrapper */
+
+/* ============================================================
+   MOBILE REFINEMENTS
+   The desktop layout uses generous 92px section padding, large
+   logos and multi-column grids. On a phone that reads as loose
+   and unfinished. This block tightens the vertical rhythm,
+   shrinks the chrome and keeps tap targets comfortable. Kept at
+   the end so it reliably wins the cascade over the base rules.
+   ============================================================ */
+
+/* Never let the circular "27 Years" hero badge overlap the
+   estimate box on small screens. */
+@media (max-width: 760px) { .hero-badge { display: none !important; } }
+
+@media (max-width: 640px) {
+  /* --- vertical rhythm --- */
+  .pad    { padding: 54px 0; }
+  .pad-sm { padding: 38px 0; }
+  .wrap   { padding: 0 18px; }
+
+  /* --- type scale --- */
+  .h2     { font-size: clamp(26px, 7.4vw, 33px); line-height: 1.14; }
+  .lead   { font-size: 16px; margin-top: 14px; }
+  .kicker { font-size: 12px; margin-bottom: 10px; }
+
+  /* --- hero: sit tighter under the shorter mobile header --- */
+  .hero-shell   { margin-top: -84px !important; padding-top: 84px !important; min-height: 86vh !important; }
+  .hero-content { padding: 26px 0 44px !important; }
+
+  /* --- grids tuned for desktop, tightened for phones --- */
+  .svc-photo-grid { gap: 30px !important; }
+  .how-grid       { gap: 16px !important; }
+  .work-strip     { margin-top: 30px !important; }
+
+  /* --- Services CTA strip: stack + center instead of squeezing --- */
+  .svc-cta {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 16px !important;
+    padding: 28px 24px !important;
+  }
+
+  /* --- footer: less sprawl --- */
+  .footer-top { padding: 44px 0 36px !important; gap: 30px !important; }
+}

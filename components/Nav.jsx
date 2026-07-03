@@ -127,17 +127,17 @@ export default function Nav() {
   const [mobileContact, setMobileContact] = useState(false)
   const pathname = usePathname()
 
-  const mLink = 'block px-7 py-3.5 font-display text-[14px] tracking-[0.1em] uppercase border-b border-white/5 transition-all duration-200'
+  const mLink = 'block mnav-item font-display text-[14px] tracking-[0.14em] uppercase border-b border-white/5 transition-colors duration-200 active:bg-white/5'
 
   return (
-    <header className="sticky top-0 z-50" style={{ background: 'transparent', padding: '12px 14px 0' }}>
+    <header className="sticky top-0 z-50 bg-transparent" style={{ padding: '12px 14px 0' }}>
       <div className="megnav-bar max-w-7xl mx-auto">
-        <div className="flex items-center justify-between gap-4 px-6 lg:px-10" style={{ height: '88px' }}>
+        <div className="megnav-inner flex items-center justify-between gap-3 h-16 lg:h-[88px]">
 
           {/* Left — Logo (equal-width spacer keeps the nav truly centered) */}
           <div className="flex-1 flex items-center min-w-0">
             <Link href="/" className="flex-shrink-0">
-              <img src="/logo.png" alt="L&J Landscaping" style={{ height: '72px', width: 'auto', display: 'block' }} />
+              <img src="/logo.png" alt="L&J Landscaping" className="h-12 lg:h-[72px] w-auto block" />
             </Link>
           </div>
 
@@ -177,7 +177,7 @@ export default function Nav() {
           </div>
 
           {/* Mobile Hamburger */}
-          <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden text-[#c9a24b] p-1" aria-label="Menu">
+          <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden text-[#c9a24b]" style={{ padding: '8px', marginRight: '-4px' }} aria-label="Menu">
             {mobileOpen ? (
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="28" height="28">
                 <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
@@ -233,8 +233,9 @@ export default function Nav() {
               )}
             </div>
 
-            <div className="px-7 py-5 flex items-center gap-5">
-              <Link href="/#quote" onClick={() => setMobileOpen(false)} className="req-quote">Request Quote</Link>
+            <div className="mnav-cta">
+              <Link href="/#quote" onClick={() => setMobileOpen(false)} className="req-quote" style={{ width: '100%', justifyContent: 'center' }}>Request Quote</Link>
+              <div className="flex items-center justify-center gap-7 mt-5">
               <a href="#" aria-label="Instagram — coming soon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="url(#ig-gradient-m)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <defs>
@@ -250,6 +251,7 @@ export default function Nav() {
                   <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
                 </svg>
               </a>
+              </div>
             </div>
           </div>
         )}

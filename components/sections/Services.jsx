@@ -127,7 +127,7 @@ export default function Services() {
         </div>
 
         {/* CTA strip */}
-        <div style={{
+        <div className="svc-cta" style={{
           marginTop: "64px", background: "#1f3d2b", borderRadius: "20px",
           padding: "36px 40px", display: "flex", alignItems: "center",
           justifyContent: "space-between", flexWrap: "wrap", gap: "20px",

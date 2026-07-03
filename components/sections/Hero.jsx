@@ -17,6 +17,7 @@ export default function Hero() {
 
   return (
     <header
+      className="hero-shell"
       style={{
         position: "relative",
         minHeight: "92vh",
@@ -62,7 +63,7 @@ export default function Hero() {
 
       {/* Content */}
       <div className="wrap" style={{ position: "relative", zIndex: 3, width: "100%" }}>
-        <div style={{ color: "#f7f4ec", padding: "60px 0 80px", maxWidth: "720px" }}>
+        <div className="hero-content" style={{ color: "#f7f4ec", padding: "60px 0 80px", maxWidth: "720px" }}>
           <span className="eyebrow">Framingham &middot; Natick &middot; Metro West</span>
 
           <h1 style={{ fontSize: "clamp(44px, 6.5vw, 82px)", fontWeight: 600, letterSpacing: "-0.02em", lineHeight: 1.04 }}>
@@ -110,10 +111,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
-      <style>{`
-        @media (max-width: 760px) { .hero-badge { display: none; } }
-      `}</style>
     </header>
   );
 }
