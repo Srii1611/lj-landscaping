@@ -35,14 +35,14 @@ export const metadata = {
       "L&J Landscaping | Reliable Lawn Care in Framingham, Natick & Metro West",
     description:
       "Family-owned landscaping and lawn care serving Framingham, Natick, and Greater Boston’s Metro West. 27 years in the trade.",
-    images: [{ url: "/hero-poster.jpg", width: 1200, height: 630, alt: "L&J Landscaping crew at work" }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "L&J Landscaping crew at work" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "L&J Landscaping | Reliable Lawn Care in Framingham & Metro West",
     description:
       "Family-owned landscaping and lawn care serving Framingham, Natick, and Metro West. 27 years in the trade.",
-    images: ["/hero-poster.jpg"],
+    images: ["/og-image.jpg"],
   },
 };
 

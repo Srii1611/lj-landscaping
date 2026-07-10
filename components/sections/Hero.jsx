@@ -1,8 +1,28 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export default function Hero() {
   const [town, setTown] = useState("");
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    // React omits the muted attribute in SSR HTML, so mobile browsers treat the
+    // video as unmuted at parse time and block autoplay. Mute explicitly, then play.
+    v.muted = true;
+    const tryPlay = () => {
+      if (v.paused) v.play().catch(() => {});
+    };
+    tryPlay();
+    // iOS Low Power Mode refuses autoplay entirely — start on the first tap anywhere.
+    window.addEventListener("touchend", tryPlay, { passive: true });
+    window.addEventListener("click", tryPlay);
+    return () => {
+      window.removeEventListener("touchend", tryPlay);
+      window.removeEventListener("click", tryPlay);
+    };
+  }, []);
 
   const goQuote = () => {
     if (town.trim()) {
@@ -30,11 +50,13 @@ export default function Hero() {
       {/* Background */}
       <div style={{ position: "absolute", inset: 0, background: "#1f3d2b" }}>
         <video
+          ref={videoRef}
           autoPlay
           muted
           loop
           playsInline
-          poster="/hero-poster.jpg"
+          preload="auto"
+          poster="/hero-poster.webp"
           aria-hidden="true"
           style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
         >
