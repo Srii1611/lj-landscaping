@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
+import { PHONE_TEL, PHONE_DISPLAY, EMAIL, FACEBOOK_URL, INSTAGRAM_URL } from "@/lib/site";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -26,18 +27,19 @@ export default function Footer() {
               style={{ marginBottom: '20px' }}
             />
             <p style={{ fontSize: '14px', color: '#f0e6ce', opacity: 0.7, maxWidth: '280px', lineHeight: 1.7 }}>
-              Family-owned landscaping and lawn care, serving Framingham, Natick, and Greater Boston&apos;s Metro West
-              for nearly three decades. Two generations, one standard.
+              Family-owned landscaping and lawn care serving Framingham, Natick, Wayland, Sudbury, Ashland,
+              Jamaica Plain, Roxbury, and Greater Boston&apos;s Metro West for nearly three decades.
+              Two generations, one standard.
             </p>
 
             {/* Social icons */}
             <div style={{ display: 'flex', gap: '14px', marginTop: '20px' }}>
-              <a href="#" style={{ color: 'rgba(240,230,206,0.5)', transition: 'color 0.2s' }} aria-label="Instagram — coming soon">
+              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="footer-social" style={{ color: 'rgba(240,230,206,0.5)', transition: 'color 0.2s' }} aria-label="L&J Landscaping on Instagram">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
                 </svg>
               </a>
-              <a href="#" style={{ color: 'rgba(240,230,206,0.5)', transition: 'color 0.2s' }} aria-label="Facebook — coming soon">
+              <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="footer-social" style={{ color: 'rgba(240,230,206,0.5)', transition: 'color 0.2s' }} aria-label="L&J Landscaping on Facebook">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
                 </svg>
@@ -92,8 +94,8 @@ export default function Footer() {
               Get in Touch
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', fontSize: '14.5px', color: '#f0e6ce', opacity: 0.7 }}>
-              <a href="tel:+15086650285" style={{ color: 'inherit', transition: 'color 0.2s' }}>Phone: (508) 665-0285</a>
-              <a href="mailto:landjlandscaping811@gmail.com" style={{ color: 'inherit', transition: 'color 0.2s', wordBreak: 'break-word' }}>Email: landjlandscaping811@gmail.com</a>
+              <a href={`tel:${PHONE_TEL}`} style={{ color: 'inherit', transition: 'color 0.2s' }}>Phone: {PHONE_DISPLAY}</a>
+              <a href={`mailto:${EMAIL}`} style={{ color: 'inherit', transition: 'color 0.2s', wordBreak: 'break-word' }}>Email: {EMAIL}</a>
               <p>12 Torrey St, Framingham, MA</p>
             </div>
             <Link href="/#quote" style={{
@@ -129,6 +131,7 @@ export default function Footer() {
         @media (max-width: 880px) { .footer-top { grid-template-columns: 1fr 1fr !important; gap: 40px; } }
         @media (max-width: 520px) { .footer-top { grid-template-columns: 1fr !important; } }
         footer ul a:hover { color: #c9a24b !important; opacity: 1 !important; }
+        .footer-social:hover { color: #c9a24b !important; }
       `}</style>
     </footer>
   );

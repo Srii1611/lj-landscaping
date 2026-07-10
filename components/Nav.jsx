@@ -4,6 +4,7 @@ import Link from 'next/link'
 /* eslint-disable @next/next/no-img-element */
 import { useState, useRef, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
+import { FACEBOOK_URL, INSTAGRAM_URL } from '@/lib/site'
 
 /* ---- line icons ---- */
 const svgProps = {
@@ -154,12 +155,12 @@ export default function Nav() {
           <div className="flex-1 hidden lg:flex items-center justify-end gap-5">
             <Link href="/#quote" className="req-quote">Request Quote</Link>
             <div className="flex items-center gap-3" style={{ color: '#c9a24b' }}>
-              <a href="#" className="opacity-90 hover:opacity-100 transition-opacity duration-300" aria-label="Instagram — coming soon">
+              <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="opacity-90 hover:opacity-100 transition-opacity duration-300" aria-label="L&J Landscaping on Instagram">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
                 </svg>
               </a>
-              <a href="#" className="opacity-90 hover:opacity-100 transition-opacity duration-300" aria-label="Facebook — coming soon">
+              <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="opacity-90 hover:opacity-100 transition-opacity duration-300" aria-label="L&J Landscaping on Facebook">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
                 </svg>
@@ -227,12 +228,12 @@ export default function Nav() {
             <div className="mnav-cta">
               <Link href="/#quote" onClick={() => setMobileOpen(false)} className="req-quote" style={{ width: '100%', justifyContent: 'center' }}>Request Quote</Link>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', marginTop: '18px' }}>
-                <a href="#" aria-label="Instagram — coming soon" className="mnav-social">
+                <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" aria-label="L&J Landscaping on Instagram" className="mnav-social">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
                   </svg>
                 </a>
-                <a href="#" aria-label="Facebook — coming soon" className="mnav-social">
+                <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" aria-label="L&J Landscaping on Facebook" className="mnav-social">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
                   </svg>
