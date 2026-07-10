@@ -47,12 +47,12 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h5 style={{
+            <p style={{
               fontSize: '13px', letterSpacing: '0.2em', textTransform: 'uppercase',
               color: '#c9a24b', marginBottom: '20px', fontFamily: 'var(--font-display)', fontWeight: 700,
             }}>
               Services
-            </h5>
+            </p>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {['Lawn Maintenance', 'Spring Cleanup', 'Fall Cleanup', 'Light Masonry & Patios', 'Fencing', 'Aeration'].map((s) => (
                 <li key={s}>
@@ -66,12 +66,12 @@ export default function Footer() {
 
           {/* Explore */}
           <div>
-            <h5 style={{
+            <p style={{
               fontSize: '13px', letterSpacing: '0.2em', textTransform: 'uppercase',
               color: '#c9a24b', marginBottom: '20px', fontFamily: 'var(--font-display)', fontWeight: 700,
             }}>
               Explore
-            </h5>
+            </p>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {[['/our-work', 'Our Work'], ['/about', 'Our Story'], ['/service-area', 'Service Area']].map(([href, label]) => (
                 <li key={href}>
@@ -85,12 +85,12 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h5 style={{
+            <p style={{
               fontSize: '13px', letterSpacing: '0.2em', textTransform: 'uppercase',
               color: '#c9a24b', marginBottom: '20px', fontFamily: 'var(--font-display)', fontWeight: 700,
             }}>
               Get in Touch
-            </h5>
+            </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', fontSize: '14.5px', color: '#f0e6ce', opacity: 0.7 }}>
               <a href="tel:+15086650285" style={{ color: 'inherit', transition: 'color 0.2s' }}>Phone: (508) 665-0285</a>
               <a href="mailto:landjlandscaping811@gmail.com" style={{ color: 'inherit', transition: 'color 0.2s', wordBreak: 'break-word' }}>Email: landjlandscaping811@gmail.com</a>

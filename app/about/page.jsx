@@ -84,9 +84,9 @@ export default function AboutPage() {
       {/* Values */}
       <section className="pad" style={{ background: '#e7e1d3' }}>
         <div className="wrap center">
-          <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '28px', color: '#1f3d2b', marginBottom: '48px' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '28px', color: '#1f3d2b', marginBottom: '48px' }}>
             What we stand for.
-          </h3>
+          </h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '32px', textAlign: 'center' }} className="values-grid">
             {[
               {
@@ -130,9 +130,9 @@ export default function AboutPage() {
       {/* Crew photo */}
       <section className="pad" style={{ background: '#f7f4ec' }}>
         <div className="wrap center">
-          <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '28px', color: '#1f3d2b', marginBottom: '32px' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '28px', color: '#1f3d2b', marginBottom: '32px' }}>
             The crew behind the work.
-          </h3>
+          </h2>
           <div style={{ position: 'relative', width: '100%', maxWidth: '820px', margin: '0 auto', aspectRatio: '4 / 3', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(31,61,43,0.18)' }}>
             <Image
               src="/lj-crew.jpg"
@@ -148,9 +148,9 @@ export default function AboutPage() {
 
       {/* CTA */}
       <section style={{ background: '#1f3d2b', padding: '72px 24px', textAlign: 'center' }}>
-        <h3 style={{ fontFamily: 'var(--font-display)', color: '#f7f4ec', fontSize: '28px' }}>
+        <h2 style={{ fontFamily: 'var(--font-display)', color: '#f7f4ec', fontSize: '28px' }}>
           Ready to work with us?
-        </h3>
+        </h2>
         <p style={{ color: 'rgba(247,244,236,0.7)', marginTop: '8px', fontSize: '16px' }}>
           Tell us about your property and we&apos;ll be in touch.
         </p>

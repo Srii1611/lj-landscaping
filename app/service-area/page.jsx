@@ -97,9 +97,9 @@ export default function ServiceAreaPage() {
         padding: '72px 24px',
         textAlign: 'center',
       }}>
-        <h3 style={{ fontFamily: 'var(--font-display)', color: '#f7f4ec', fontSize: '28px' }}>
+        <h2 style={{ fontFamily: 'var(--font-display)', color: '#f7f4ec', fontSize: '28px' }}>
           Don&apos;t see your town?
-        </h3>
+        </h2>
         <p style={{ color: 'rgba(247,244,236,0.7)', marginTop: '8px', fontSize: '16px' }}>
           We may still cover your area — just ask.
         </p>

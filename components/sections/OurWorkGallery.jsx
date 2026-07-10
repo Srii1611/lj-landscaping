@@ -16,7 +16,7 @@ export default function OurWorkGallery() {
       <section className="pad-sm" style={{ background: '#f7f4ec' }}>
         <div className="wrap center">
           <p className="kicker">Our Portfolio</p>
-          <h1 className="h2">Projects that speak for themselves.</h1>
+          <h1 className="h2">Landscaping projects that speak for themselves.</h1>
           <p className="lead">
             Every lawn, every cleanup, every patio — photographed on the job.
           </p>
@@ -100,9 +100,9 @@ export default function OurWorkGallery() {
         padding: '72px 24px',
         textAlign: 'center',
       }}>
-        <h3 style={{ fontFamily: 'var(--font-display)', color: '#f7f4ec', fontSize: '28px' }}>
+        <h2 style={{ fontFamily: 'var(--font-display)', color: '#f7f4ec', fontSize: '28px' }}>
           Like what you see?
-        </h3>
+        </h2>
         <p style={{ color: 'rgba(247,244,236,0.7)', marginTop: '8px', fontSize: '16px' }}>
           Let&apos;s talk about your property.
         </p>

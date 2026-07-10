@@ -32,12 +32,12 @@ export default function ServicesPage() {
       <BreadcrumbSchema page="Services" path="/services" />
       <div className="wrap center">
         <p className="kicker">What we do</p>
-        <h1 className="h2">Our Services</h1>
+        <h1 className="h2">Lawn Care &amp; Landscaping Services</h1>
         <p className="lead" style={{ marginBottom: "56px" }}>
           From a tidy weekly mow to a full seasonal cleanup, we keep it simple: core services done all season, plus the special projects when you want more.
         </p>
 
-        <h2 className="sr-only">Our Landscaping Services</h2>
+        <h2 className="sr-only">Full Service List</h2>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "40px", textAlign: "left" }}>
           {services.map((s) => (
             <div key={s.title} style={{ padding: "32px", background: "#f7f4ec", borderRadius: "16px" }}>
