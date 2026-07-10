@@ -56,7 +56,8 @@ export const metadata = {
   },
 };
 
-// Address confirmed real (12 Torrey St, Framingham 01702). NOTE: add real opening hours when known.
+// Address confirmed real (12 Torrey St, Framingham 01702).
+// Hours mirror the quote form's scheduling windows (Mon-Sat, 8-12/12-3/3-6).
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LandscapingBusiness",
@@ -81,6 +82,14 @@ const localBusinessSchema = {
     name,
     address: { addressRegion: "MA" },
   })),
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      opens: "08:00",
+      closes: "18:00",
+    },
+  ],
   foundingDate: "2022",
   slogan: "Two generations, one standard.",
   priceRange: "$$",
