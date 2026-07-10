@@ -56,7 +56,7 @@ export const metadata = {
   },
 };
 
-// NOTE: verify postalCode (01701/01702) and add real opening hours before launch.
+// Address confirmed real (12 Torrey St, Framingham 01702). NOTE: add real opening hours when known.
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LandscapingBusiness",
