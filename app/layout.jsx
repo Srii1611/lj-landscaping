@@ -2,6 +2,15 @@ import { Fraunces, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import {
+  SITE_URL,
+  BUSINESS_NAME,
+  PHONE_TEL,
+  EMAIL,
+  FACEBOOK_URL,
+  INSTAGRAM_URL,
+  SERVICE_AREA_TOWNS,
+} from "@/lib/site";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -17,12 +26,13 @@ const hankenGrotesk = Hanken_Grotesk({
   display: "swap",
 });
 
-const SITE_URL = "https://lj-landscaping.vercel.app";
-
 export const metadata = {
   metadataBase: new URL(SITE_URL),
-  title:
-    "L&J Landscaping | Reliable Lawn Care in Framingham, Natick & Metro West",
+  title: {
+    default:
+      "L&J Landscaping | Reliable Lawn Care in Framingham, Natick & Metro West",
+    template: "%s | L&J Landscaping",
+  },
   description:
     "Family-owned landscaping and lawn care serving Framingham, Natick, and Greater Boston’s Metro West. The most reliable crew you’ve seen — lawn maintenance, spring & fall cleanups, and more.",
   alternates: { canonical: "/" },
@@ -50,12 +60,14 @@ export const metadata = {
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LandscapingBusiness",
-  name: "L&J Landscaping",
+  name: BUSINESS_NAME,
+  description:
+    "Family-owned landscaping and lawn care company serving Framingham, Natick, and Greater Boston's Metro West. Two generations of experience in lawn maintenance, spring and fall cleanups, mulching, and light masonry.",
   image: `${SITE_URL}/logo.png`,
   "@id": `${SITE_URL}/#business`,
   url: SITE_URL,
-  telephone: "+15086650285",
-  email: "landjlandscapingma@gmail.com",
+  telephone: PHONE_TEL,
+  email: EMAIL,
   address: {
     "@type": "PostalAddress",
     streetAddress: "12 Torrey St",
@@ -64,15 +76,15 @@ const localBusinessSchema = {
     postalCode: "01702",
     addressCountry: "US",
   },
-  areaServed: [
-    "Framingham", "Natick", "Wayland", "Sudbury", "Ashland", "Wellesley",
-    "Newton", "Weston", "Holliston", "Hopkinton", "Sherborn", "Medfield",
-    "Dover", "Needham", "Dedham", "Milford", "Northborough", "Westborough",
-  ].map((name) => ({ "@type": "City", name })),
+  areaServed: SERVICE_AREA_TOWNS.map((name) => ({
+    "@type": "City",
+    name,
+    address: { addressRegion: "MA" },
+  })),
   foundingDate: "2022",
   slogan: "Two generations, one standard.",
   priceRange: "$$",
-  sameAs: [],
+  sameAs: [FACEBOOK_URL, INSTAGRAM_URL],
 };
 
 export default function RootLayout({ children }) {

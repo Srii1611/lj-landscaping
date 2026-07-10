@@ -1,3 +1,5 @@
+import { SITE_URL } from "@/lib/site";
+
 export default function BreadcrumbSchema({ page, path }) {
   const schema = {
     "@context": "https://schema.org",
@@ -7,13 +9,13 @@ export default function BreadcrumbSchema({ page, path }) {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://lj-landscaping.vercel.app",
+        "item": SITE_URL,
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": page,
-        "item": `https://lj-landscaping.vercel.app${path}`,
+        "item": `${SITE_URL}${path}`,
       },
     ],
   };

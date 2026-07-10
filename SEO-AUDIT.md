@@ -17,7 +17,7 @@ most are a few lines in Next.js — but several will actively suppress local ran
 
 **What's working:**
 - Homepage `<title>`: *"L&J Landscaping | Reliable Lawn Care in Framingham, Natick & Metro West"* — keyword + city + brand. Good.
-- Full, consistent NAP in the footer: **(508) 665-0285 · landjlandscapingma@gmail.com · 12 Torrey St, Framingham, MA**. This is the #1 local-ranking trust signal and it's present and consistent.
+- Full, consistent NAP in the footer: **(508) 665-0285 · landjlandscaping811@gmail.com · 12 Torrey St, Framingham, MA**. This is the #1 local-ranking trust signal and it's present and consistent.
 - `/service-area` lists 20 towns with keyword-rich labels ("Framingham Landscaping", "Natick Lawn Care").
 
 **What's hurting you for "lawn care Framingham":**
@@ -50,7 +50,7 @@ most are a few lines in Next.js — but several will actively suppress local ran
     "name": "L&J Landscaping",
     "image": "https://lj-landscaping.vercel.app/logo.png",
     "telephone": "+15086650285",
-    "email": "landjlandscapingma@gmail.com",
+    "email": "landjlandscaping811@gmail.com",
     "url": "https://lj-landscaping.vercel.app",
     "address": {
       "@type": "PostalAddress",

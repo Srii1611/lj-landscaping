@@ -1,12 +1,12 @@
-export default function sitemap() {
-  const base = "https://lj-landscaping.vercel.app";
+import { SITE_URL } from "@/lib/site";
 
+export default function sitemap() {
   const routes = [
-    { url: base, priority: 1.0, changeFrequency: "weekly" },
-    { url: `${base}/services`, priority: 0.9, changeFrequency: "monthly" },
-    { url: `${base}/our-work`, priority: 0.8, changeFrequency: "monthly" },
-    { url: `${base}/about`, priority: 0.7, changeFrequency: "monthly" },
-    { url: `${base}/service-area`, priority: 0.8, changeFrequency: "monthly" },
+    { url: SITE_URL, priority: 1.0, changeFrequency: "weekly" },
+    { url: `${SITE_URL}/services`, priority: 0.9, changeFrequency: "monthly" },
+    { url: `${SITE_URL}/our-work`, priority: 0.8, changeFrequency: "monthly" },
+    { url: `${SITE_URL}/service-area`, priority: 0.8, changeFrequency: "monthly" },
+    { url: `${SITE_URL}/about`, priority: 0.7, changeFrequency: "monthly" },
   ];
 
   return routes.map((route) => ({
