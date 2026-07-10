@@ -36,12 +36,13 @@ export default function AboutPage() {
       <section className="pad" style={{ background: '#f7f4ec' }}>
         <div className="wrap">
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }} className="about-story-grid">
-            <div style={{ position: 'relative', width: '100%', aspectRatio: '3 / 4', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(31,61,43,0.18)' }}>
+            <div style={{ position: 'relative', width: '100%', aspectRatio: '659 / 720', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(31,61,43,0.18)' }}>
               <Image
-                src="/Luis image.webp"
-                alt="Luis — co-owner of L&J Landscaping"
+                src="/luis-and-jose.png"
+                alt="Luis and Jose — the father-and-son team behind L&J Landscaping"
                 fill
                 priority
+                quality={95}
                 style={{ objectFit: 'cover' }}
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
@@ -128,9 +129,10 @@ export default function AboutPage() {
           </h3>
           <div style={{ position: 'relative', width: '100%', maxWidth: '820px', margin: '0 auto', aspectRatio: '4 / 3', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 20px 50px rgba(31,61,43,0.18)' }}>
             <Image
-              src="/lj_crew_004.jpg"
+              src="/lj-crew.jpg"
               alt="The L&J Landscaping crew"
               fill
+              quality={95}
               style={{ objectFit: 'cover' }}
               sizes="(max-width: 880px) 100vw, 820px"
             />
