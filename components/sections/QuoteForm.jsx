@@ -1,12 +1,14 @@
 "use client";
 import { useState, useEffect } from "react";
+import { FORMSPREE_ENDPOINT, PHONE_TEL, PHONE_DISPLAY } from "@/lib/site";
 
 const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const times = ["Morning (8–12)", "Midday (12–3)", "Afternoon (3–6)"];
 
 export default function QuoteForm() {
   const [fields, setFields] = useState({ name: "", phone: "", email: "", address: "", needs: "", day: "", time: "" });
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState("idle"); // idle | submitting | success | error
+  const [validationError, setValidationError] = useState("");
 
   const set = (k) => (e) => setFields((f) => ({ ...f, [k]: e.target.value }));
 
@@ -17,12 +19,56 @@ export default function QuoteForm() {
     return () => window.removeEventListener("quote-prefill", handler);
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: wire to a Next.js route handler that emails Luis with a clickable
-    // Google Maps link for the submitted address once the company Gmail is set up.
-    setSubmitted(true);
-    setTimeout(() => document.getElementById("formSuccess")?.scrollIntoView({ behavior: "smooth", block: "center" }), 50);
+    if (status === "submitting") return;
+
+    const name = fields.name.trim();
+    const phone = fields.phone.trim();
+    const email = fields.email.trim();
+    const address = fields.address.trim();
+    const message = fields.needs.trim();
+
+    if (!name || !phone || !email || !address || !message) {
+      setValidationError("Please fill in your name, phone, email, property address, and what you need.");
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setValidationError("That email address doesn’t look right — mind double-checking it?");
+      return;
+    }
+    if (phone.replace(/\D/g, "").length < 10) {
+      setValidationError("Please enter a full 10-digit phone number.");
+      return;
+    }
+    setValidationError("");
+    setStatus("submitting");
+
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name,
+          phone,
+          email,
+          address,
+          message,
+          preferred_day: fields.day || "Any day",
+          time_window: fields.time || "Any time",
+          maps_link: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`,
+          // Formspree silently drops any submission where this field is filled.
+          _gotcha: e.target.elements._gotcha ? e.target.elements._gotcha.value : "",
+          _replyto: email,
+          _subject: `New quote request — ${name} (${address})`,
+        }),
+      });
+      if (!res.ok) throw new Error(`Formspree responded ${res.status}`);
+      setStatus("success");
+      setTimeout(() => document.getElementById("formSuccess")?.scrollIntoView({ behavior: "smooth", block: "center" }), 50);
+    } catch {
+      setStatus("error");
+    }
   };
 
   const inputStyle = {
@@ -63,7 +109,7 @@ export default function QuoteForm() {
 
           {/* Form card */}
           <div style={{ background: "#f7f4ec", borderRadius: "22px", padding: "32px", color: "#1c1b17" }}>
-            {!submitted ? (
+            {status !== "success" ? (
               <form onSubmit={handleSubmit}>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }} className="form-row">
                   <div className="fgroup">
@@ -114,8 +160,32 @@ export default function QuoteForm() {
                   </div>
                 </div>
 
-                <button type="submit" className="btn" style={{ width: "100%", justifyContent: "center", marginTop: "22px", padding: "15px", fontSize: "15px" }}>
-                  Request My Free Quote
+                {/* Honeypot — hidden from real visitors, bots fill it and Formspree drops those */}
+                <div style={{ position: "absolute", left: "-9999px", top: "auto", width: "1px", height: "1px", overflow: "hidden" }} aria-hidden="true">
+                  <label htmlFor="fGotcha">Leave this field empty</label>
+                  <input id="fGotcha" name="_gotcha" type="text" tabIndex={-1} autoComplete="off" defaultValue="" />
+                </div>
+
+                {validationError && (
+                  <p style={{ marginTop: "16px", fontSize: "14px", color: "#8c3b2e", background: "rgba(140,59,46,0.08)", border: "1px solid rgba(140,59,46,0.3)", borderRadius: "10px", padding: "12px 14px" }}>
+                    {validationError}
+                  </p>
+                )}
+
+                {status === "error" && (
+                  <p style={{ marginTop: "16px", fontSize: "14px", color: "#8c3b2e", background: "rgba(140,59,46,0.08)", border: "1px solid rgba(140,59,46,0.3)", borderRadius: "10px", padding: "12px 14px" }}>
+                    Something went wrong &mdash; call us at{" "}
+                    <a href={`tel:${PHONE_TEL}`} style={{ color: "#8c3b2e", fontWeight: 700, textDecoration: "underline" }}>{PHONE_DISPLAY}</a>.
+                  </p>
+                )}
+
+                <button
+                  type="submit"
+                  className="btn"
+                  disabled={status === "submitting"}
+                  style={{ width: "100%", justifyContent: "center", marginTop: "22px", padding: "15px", fontSize: "15px", opacity: status === "submitting" ? 0.65 : 1, cursor: status === "submitting" ? "wait" : "pointer" }}
+                >
+                  {status === "submitting" ? "Sending…" : "Request My Free Quote"}
                 </button>
                 <p style={{ fontSize: "12px", color: "rgba(28,27,23,0.5)", textAlign: "center", marginTop: "14px" }}>
                   We&apos;ll never share your information. Expect a reply within one business day.
@@ -130,7 +200,7 @@ export default function QuoteForm() {
                 </div>
                 <h3 style={{ fontSize: "24px", color: "#1f3d2b" }}>Thanks &mdash; we&apos;ve got it!</h3>
                 <p style={{ marginTop: "10px", color: "rgba(28,27,23,0.7)", fontSize: "15px" }}>
-                  Luis will get your request by email right away and reach out to confirm a day and time that works for you.
+                  Luis will reach out to confirm a time that works for you.
                 </p>
               </div>
             )}
