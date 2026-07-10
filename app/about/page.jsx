@@ -3,10 +3,16 @@ import Image from 'next/image';
 import BreadcrumbSchema from '@/components/Breadcrumb';
 
 export const metadata = {
-  title: 'About Us | L&J Landscaping — Family-Owned Since 2022, Framingham MA',
+  title: 'About Us — Family-Owned Crew in Framingham, MA',
   description:
-    'Two generations of landscaping expertise. Luis and Jose bring 27+ years of hands-on experience to every lawn in Framingham, Natick, and Metro West Boston.',
+    'Meet Luis and Jose — a father-and-son landscaping team with 27+ years of experience caring for lawns in Framingham, Natick, and Metro West Boston.',
   alternates: { canonical: '/about' },
+  openGraph: {
+    title: 'About Us — Family-Owned Crew in Framingham, MA',
+    description:
+      'Meet Luis and Jose — a father-and-son landscaping team with 27+ years of experience caring for lawns in Framingham, Natick, and Metro West Boston.',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'L&J Landscaping crew at work' }],
+  },
 };
 
 export default function AboutPage() {

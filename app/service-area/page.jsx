@@ -2,10 +2,16 @@ import Link from "next/link";
 import BreadcrumbSchema from "@/components/Breadcrumb";
 
 export const metadata = {
-  title: "Service Area — Metro West Boston Landscaping | L&J Landscaping",
+  title: "Service Area — Metro West & Greater Boston, MA",
   description:
-    "L&J Landscaping serves Framingham, Natick, Wayland, Sudbury, Ashland, Wellesley, and surrounding Metro West towns. Get a free quote today.",
+    "L&J Landscaping serves Framingham, Natick, Wayland, Sudbury, Ashland, Jamaica Plain, Roxbury, and surrounding Metro West towns. Free quotes, local crew.",
   alternates: { canonical: "/service-area" },
+  openGraph: {
+    title: "Service Area — Metro West & Greater Boston, MA",
+    description:
+      "L&J Landscaping serves Framingham, Natick, Wayland, Sudbury, Ashland, Jamaica Plain, Roxbury, and surrounding Metro West towns. Free quotes, local crew.",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "L&J Landscaping crew at work" }],
+  },
 };
 
 const areas = [

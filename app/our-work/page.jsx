@@ -2,10 +2,16 @@ import OurWorkGallery from '@/components/sections/OurWorkGallery';
 import BreadcrumbSchema from '@/components/Breadcrumb';
 
 export const metadata = {
-  title: 'Our Work — Landscaping Projects in Metro West | L&J Landscaping',
+  title: 'Before & After Landscaping Projects, Metro West MA',
   description:
-    'See real before-and-after landscaping work by L&J Landscaping across Framingham, Natick, Wayland, and surrounding Metro West towns.',
+    'Real before-and-after landscaping projects — lawns, cleanups, and patios photographed on the job across Framingham, Natick, and Metro West towns.',
   alternates: { canonical: '/our-work' },
+  openGraph: {
+    title: 'Before & After Landscaping Projects, Metro West MA',
+    description:
+      'Real before-and-after landscaping projects — lawns, cleanups, and patios photographed on the job across Framingham, Natick, and Metro West towns.',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'L&J Landscaping crew at work' }],
+  },
 };
 
 export default function OurWorkPage() {

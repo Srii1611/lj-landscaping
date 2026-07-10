@@ -2,10 +2,16 @@ import Link from "next/link";
 import BreadcrumbSchema from "@/components/Breadcrumb";
 
 export const metadata = {
-  title: "Lawn Care & Landscaping Services | L&J Landscaping — Framingham, MA",
+  title: "Lawn Care & Landscaping Services in Metro West",
   description:
-    "Lawn maintenance, spring & fall cleanups, mulching, light masonry, fencing, and more across Framingham, Natick & Metro West. Family-owned, 27 years of experience.",
+    "Lawn maintenance, spring and fall cleanups, mulching, aeration, fencing, and light masonry for homes across Framingham, Natick, and Metro West MA.",
   alternates: { canonical: "/services" },
+  openGraph: {
+    title: "Lawn Care & Landscaping Services in Metro West",
+    description:
+      "Lawn maintenance, spring and fall cleanups, mulching, aeration, fencing, and light masonry for homes across Framingham, Natick, and Metro West MA.",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "L&J Landscaping crew at work" }],
+  },
 };
 
 const services = [
